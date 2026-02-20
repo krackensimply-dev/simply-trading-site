@@ -922,7 +922,108 @@
         margin-inline: auto;
       }
     }
+/* IMAGE / VISUAL SECTIONS */
 
+.visual-section {
+  padding: 4.5rem 0;
+  background: radial-gradient(circle at 0 0, rgba(97,146,78,0.15), transparent 60%),
+              radial-gradient(circle at 100% 100%, rgba(174,116,42,0.18), transparent 60%),
+              #020304;
+}
+
+.visual-section.alt {
+  background: #05070a;
+}
+
+.visual-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.visual-text-eyebrow {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--text-soft);
+  margin-bottom: 0.45rem;
+}
+
+.visual-text-title {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  font-size: 1.6rem;
+  margin-bottom: 0.6rem;
+}
+
+.visual-text-body {
+  font-size: 0.9rem;
+  color: var(--text-soft);
+  line-height: 1.7;
+  max-width: 32rem;
+}
+
+.visual-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0.8rem 0 0;
+  font-size: 0.84rem;
+  color: var(--text-soft);
+}
+
+.visual-bullets li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+
+.visual-bullets li + li {
+  margin-top: 0.25rem;
+}
+
+.visual-bullet-dot {
+  font-size: 0.95rem;
+  margin-top: 0.12rem;
+}
+
+.visual-media {
+  position: relative;
+}
+
+.visual-img-frame {
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: #020617;
+}
+
+.visual-img-frame img {
+  width: 100%;
+  display: block;
+}
+
+/* small floating tag on top of an image */
+.visual-tag {
+  position: absolute;
+  left: 1.1rem;
+  top: 1.1rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(255, 220, 126, 0.7);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--accent-soft);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .visual-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
     @media (max-width: 760px) {
       .nav-links,
       .nav-cta {
@@ -1247,6 +1348,43 @@
         </div>
       </section>
 
+<section class="visual-section">
+  <div class="container">
+    <div class="visual-grid">
+      <div>
+        <div class="visual-text-eyebrow">Your environment</div>
+        <h2 class="visual-text-title">Built for traders who are already at the screens.</h2>
+        <p class="visual-text-body">
+          Whether you are trading from a home office or a laptop on the couch,
+          Simply Trading is designed to plug into the way you already work:
+          clear levels, clean examples, and a community that focuses on process.
+        </p>
+        <ul class="visual-bullets">
+          <li>
+            <span class="visual-bullet-dot">•</span>
+            <span>Follow live context without feeling glued to someone else’s alerts.</span>
+          </li>
+          <li>
+            <span class="visual-bullet-dot">•</span>
+            <span>See how we frame risk, entries, and exits in real time.</span>
+          </li>
+          <li>
+            <span class="visual-bullet-dot">•</span>
+            <span>Adapt the frameworks to your own schedule and account size.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="visual-media">
+        <div class="visual-img-frame">
+          <img src="images/trader-multimonitor.jpg" alt="Trader watching multiple trading monitors">
+        </div>
+        <div class="visual-tag">Live market focus</div>
+      </div>
+    </div>
+  </div>
+</section>
+
       <!-- PRICING -->
       <section id="pricing">
         <div class="container">
@@ -1332,6 +1470,43 @@
           </div>
         </div>
       </section>
+
+<section class="visual-section alt">
+  <div class="container">
+    <div class="visual-grid">
+      <div class="visual-media">
+        <div class="visual-img-frame">
+          <img src="images/trader-laptop.jpg" alt="Trader using laptop and large monitor for charts">
+        </div>
+        <div class="visual-tag">Day + swing frameworks</div>
+      </div>
+
+      <div>
+        <div class="visual-text-eyebrow">Education in context</div>
+        <h2 class="visual-text-title">See trades explained, not just called out.</h2>
+        <p class="visual-text-body">
+          Inside the room you will see the entire lifecycle of a trade:
+          from prep, to execution, to management, to review. Wins and losses
+          are broken down so you can understand what actually matters.
+        </p>
+        <ul class="visual-bullets">
+          <li>
+            <span class="visual-bullet-dot">•</span>
+            <span>Pre–market planning, intraday updates, and end-of-day breakdowns.</span>
+          </li>
+          <li>
+            <span class="visual-bullet-dot">•</span>
+            <span>Questions are encouraged; you are here to learn, not to be quiet.</span>
+          </li>
+          <li>
+            <span class="visual-bullet-dot">•</span>
+            <span>Everything is aligned with risk first, reward second.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
       <!-- COMMUNITY -->
       <section>
@@ -1471,6 +1646,37 @@
           </div>
         </div>
       </section>
+
+<section class="visual-section" style="padding-top: 3.5rem; padding-bottom: 3.5rem;">
+  <div class="container">
+    <div class="visual-grid">
+      <div>
+        <div class="visual-text-eyebrow">Mobile–ready</div>
+        <h2 class="visual-text-title">Stay plugged in even when you are away from the desk.</h2>
+        <p class="visual-text-body">
+          Access the community, education, and live commentary directly from your phone.
+          Join through Whop, connect to Discord, and you are ready to go.
+        </p>
+        <ul class="visual-bullets">
+          <li>
+            <span class="visual-bullet-dot">•</span>
+            <span>Whop handles billing and access so you can focus on the market.</span>
+          </li>
+          <li>
+            <span class="visual-bullet-dot">•</span>
+            <span>Discord community accessible on desktop and mobile.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="visual-media">
+        <div class="visual-img-frame">
+          <img src="images/st-promo-mobile.jpg" alt="Simply Trading mobile promotion graphic">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       <!-- RISK DISCLAIMER -->
       <section>
