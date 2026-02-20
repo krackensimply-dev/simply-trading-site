@@ -1,47 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="description" content="Structured trading education and community with live market context. Join Simply Trading on Whop for education-focused support.">
-<meta property="og:title" content="Simply Trading – Advanced Trading Education & Community">
-<meta property="og:description" content="Structured trading education and community with live market context. Join Simply Trading on Whop.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://simplytrading.info">
-<meta property="og:image" content="https://simplytrading.info/images/st-promo-mobile.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@SimplyTradingCo">
-<link rel="icon" href="/favicon.png" type="image/png">
-
-
   <meta charset="UTF-8" />
-  <title>Simply Trading – Advanced Trading Education & Community</title>
+  <title>Stock Option Trading Education | Simply Trading</title>
+  <meta name="description" content="Simply Trading provides advanced stock option trading education, structured analysis, and a serious community. Learn how to trade options effectively with real context, not signals." />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Simply Trading offers advanced trading education, structured analysis, and a serious trading community. Join today on Whop.">
+
+  <!-- Open Graph for Social Previews -->
+  <meta property="og:title" content="Stock Option Trading Education | Simply Trading">
+  <meta property="og:description" content="Advanced stock option trading education, structured analysis, and community support. Join Simply Trading on Whop to learn options trading the right way.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://simplytrading.info">
+  <meta property="og:image" content="https://simplytrading.info/images/st-promo-mobile.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts (Modern Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* ================= GLOBAL ================= */
+    /* ================= GLOBAL VARIABLES ================= */
     :root {
       --bg-main: #0f1318;
       --bg-alt: #14171b;
       --bg-section-soft: rgba(255,255,255,0.04);
-      --primary: #61924E;
       --accent: #AE742A;
-      --accent-light: #FFDC7E;
+      --accent-soft: #FFDC7E;
       --text-main: #e5e7eb;
       --text-soft: #9ca3af;
       --border-soft: rgba(148,163,184,0.24);
+      --shadow-soft: 0 25px 60px rgba(0,0,0,0.65);
       --radius-lg: 16px;
-      --shadow-soft: 0 24px 60px rgba(0,0,0,0.7);
       --max-width: 1120px;
+      --font-sans: "Inter", system-ui, sans-serif;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+      font-family: var(--font-sans);
       background: var(--bg-main);
       color: var(--text-main);
-      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
-    img { display: block; max-width: 100%; }
     a { text-decoration: none; color: inherit; }
 
     .container {
@@ -50,44 +52,48 @@
       padding: 0 1.6rem;
     }
 
-    h1, h2, h3 { color: #fff; }
-    h2 { font-size: 2rem; margin-bottom: 0.5rem; }
-    p { line-height: 1.6; }
+    h1, h2, h3 { font-weight: 700; color: #fff; }
+    h2 { font-size: 2.2rem; margin-bottom: 0.6rem; }
+    p { color: var(--text-soft); line-height: 1.6; }
 
     .btn {
       padding: 0.65rem 1.4rem;
       border-radius: var(--radius-lg);
       font-weight: 500;
       cursor: pointer;
-      display: inline-block;
-      text-align: center;
       transition: 0.18s ease;
     }
     .btn-primary {
-      background: linear-gradient(135deg, var(--accent), var(--primary));
+      background: var(--accent);
       color: #fefce8;
-      box-shadow: 0 0 20px rgba(255,220,126,0.35);
+      box-shadow: 0 0 18px rgba(255,220,126,0.32);
     }
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      opacity: 0.92;
-    }
+    .btn-primary:hover { opacity: 0.92; }
     .btn-outline {
       border: 1px solid var(--text-soft);
       color: var(--text-soft);
     }
     .btn-outline:hover {
+      border-color: var(--accent-soft);
       color: #fff;
-      border-color: var(--accent-light);
     }
 
-    /* ========== STICKY NAV ========== */
+    /* ========== ANIMATED BACKGROUND (MODERATE) ========== */
+    #ambientBG {
+      position: fixed;
+      inset: 0;
+      z-index: -10;
+      background: #0f1318;
+      pointer-events: none;
+    }
+
+    /* ========== STICKY NAVIGATION ========== */
     header {
       position: sticky;
       top: 0;
-      z-index: 100;
       background: var(--bg-alt);
       border-bottom: 1px solid var(--border-soft);
+      z-index: 100;
       padding: 0.9rem 0;
     }
     .nav-inner {
@@ -95,71 +101,47 @@
       justify-content: space-between;
       align-items: center;
     }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-    .brand img {
-      height: 48px;
-      width: auto;
-    }
+    .brand { display: flex; align-items: center; gap: 0.6rem; }
+    .brand img { height: 48px; width: auto; }
     nav a {
       margin: 0 1rem;
-      font-size: 0.94rem;
+      font-size: 0.95rem;
       color: var(--text-soft);
       position: relative;
       font-weight: 500;
     }
-    nav a:hover {
-      color: #fff;
-    }
+    nav a:hover { color: #fff; }
     nav a::after {
       content: "";
-      position: absolute;
-      bottom: -3px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: transparent;
-      transition: 0.18s ease;
+      position: absolute; bottom: -3px; left: 0;
+      width: 100%; height: 2px;
+      background: transparent; transition: 0.18s ease;
     }
-    nav a:hover::after {
-      background: var(--accent-light);
-    }
+    nav a:hover::after { background: var(--accent-soft); }
 
     /* ========== HERO ========== */
     .hero {
       position: relative;
-      background:
-        linear-gradient(to bottom right, rgba(15,15,15,0.75), rgba(1,1,1,0.85)),
-        url("images/st-promo-mobile.jpg") center/cover no-repeat;
       padding: 5rem 0 4rem;
       text-align: center;
+      background: none;
     }
     .hero h1 {
       font-size: clamp(2.8rem, 5vw, 3.8rem);
       margin-bottom: 1rem;
     }
     .hero p {
-      color: var(--text-soft);
-      margin-bottom: 1.7rem;
-      max-width: 34rem;
-      margin-left: auto;
-      margin-right: auto;
+      max-width: 36rem;
+      margin: 0 auto 1.8rem;
     }
     .hero .hero-ctas {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
-      flex-wrap: wrap;
+      display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;
     }
 
-    /* ========== SECTION BACKGROUNDS ========== */
+    /* ========== SECTION STYLES ========== */
+    section { padding: 3.5rem 0; }
     section:nth-of-type(odd) { background: var(--bg-section-soft); }
     section:nth-of-type(even) { background: var(--bg-alt); }
-    section { padding: 3.5rem 0; }
 
     /* ========== VISUAL GRID ========== */
     .visual-grid {
@@ -170,10 +152,10 @@
       margin-top: 1rem;
     }
     .visual-tag {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       text-transform: uppercase;
       background: var(--bg-main);
-      color: var(--accent-light);
+      color: var(--accent-soft);
       display: inline-block;
       padding: 0.45rem 0.9rem;
       border-radius: 999px;
@@ -185,147 +167,110 @@
       box-shadow: var(--shadow-soft);
       border: 1px solid var(--border-soft);
     }
-    @media (max-width: 900px) {
-      .visual-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 900px) { .visual-grid { grid-template-columns: 1fr; } }
 
     /* ========== TESTIMONIAL CAROUSEL ========== */
-    .testimonials {
-      text-align: center;
-      max-width: 900px;
-      margin: 2rem auto;
-      position: relative;
-    }
+    .testimonials { text-align: center; max-width: 900px; margin: 2rem auto; }
     .testimonial-slide {
-      opacity: 0;
-      transition: opacity 0.6s ease;
-      padding: 0 1.5rem;
-      display: none;
+      opacity: 0; transition: opacity 0.6s ease;
+      padding: 0 1.6rem; display: none;
     }
-    .testimonial-slide.active {
-      display: block;
-      opacity: 1;
-    }
+    .testimonial-slide.active { opacity: 1; display: block; }
     .testimonial-quote {
-      font-size: 1.05rem;
-      font-style: italic;
-      color: var(--text-main);
-      margin-bottom: 1rem;
+      font-size: 1.03rem; font-style: italic; color: var(--text-main); margin-bottom: 0.8rem;
     }
-    .testimonial-author {
-      font-weight: 600;
-      color: var(--accent);
-    }
+    .testimonial-author { font-weight: 600; color: var(--accent); }
 
     /* ========== PRICING TOGGLE ========== */
     .pricing-toggle {
-      display: flex;
-      gap: 0.6rem;
-      justify-content: center;
-      margin-bottom: 1.8rem;
+      display: flex; gap: 0.6rem; justify-content:center;
+      margin-bottom: 1.7rem;
     }
     .pricing-toggle button {
-      padding: 0.5rem 1.1rem;
-      background: var(--bg-alt);
-      border: 1px solid var(--border-soft);
-      border-radius: var(--radius-lg);
-      color: var(--text-soft);
-      cursor: pointer;
-      font-size: 0.92rem;
+      padding: 0.55rem 1.15rem;
+      background: var(--bg-alt); border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg); color: var(--text-soft); cursor: pointer;
     }
     .pricing-toggle button.active {
-      background: var(--accent-light);
-      color: #111;
+      background: var(--accent-soft); color: #111;
       border-color: var(--accent);
     }
 
-    /* ========== EMAIL POPUP ================= */
+    /* ========== EMAIL POPUP ========== */
     .popup-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.8);
-      display: none;
-      align-items: center;
-      justify-content: center;
+      position: fixed; inset: 0; background: rgba(0,0,0,0.78);
+      display: none; align-items: center; justify-content: center;
       z-index: 200;
     }
     .popup-box {
-      background: var(--bg-alt);
-      padding: 2rem 2.4rem;
-      border-radius: var(--radius-lg);
-      width: 90%;
-      max-width: 380px;
-      text-align: center;
+      background: var(--bg-alt); padding: 2rem 2.4rem;
+      border-radius: var(--radius-lg); max-width: 380px; text-align:center;
       box-shadow: var(--shadow-soft);
     }
-    .popup-close {
-      position: absolute;
-      top: 8px;
-      right: 10px;
-      font-size: 1.3rem;
-      cursor: pointer;
-      color: var(--text-soft);
-    }
+    .popup-close { position:absolute; top:8px; right:10px; font-size:1.3rem; cursor:pointer; color:var(--text-soft); }
 
     /* ========== FAQ ================= */
-    .faq-grid {
-      display: grid;
-      gap: 1rem;
-    }
+    .faq-grid { display: grid; gap: 1rem; }
     .faq-item {
-      background: var(--bg-main);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-soft);
-      padding: 1rem 1.4rem;
+      background: var(--bg-main); padding: 1rem 1.4rem;
+      border-radius: var(--radius-lg); border: 1px solid var(--border-soft);
     }
     .faq-q { font-weight: 600; }
-    .faq-a { color: var(--text-soft); margin-top: 0.3rem; }
+    .faq-a { color: var(--text-soft); margin-top:0.3rem; }
 
-    /* ========== FOOTER ========== */
+    /* ========== FOOTER ================= */
     footer {
-      text-align: center;
-      padding: 2.5rem 0;
-      border-top: 1px solid var(--border-soft);
-      font-size: 0.85rem;
-      color: var(--text-soft);
+      text-align: center; padding: 2.5rem 0;
+      border-top: 1px solid var(--border-soft); font-size:0.85rem; color:var(--text-soft);
     }
-    footer a:hover { color: var(--accent-light); }
+    footer a:hover { color: var(--accent-soft); }
   </style>
-</head>
-<body>
-
-<!-- STICKY NAV -->
-<header>
-  <div class="container nav-inner">
-    <a href="#top" class="brand">
-      <img src="assets/simply-trading-logo.jpg?v=2" alt="Simply Trading logo">
-      <span style="font-size:1.2rem; font-weight:600; color:#fff;">Simply Trading</span>
-    </a>
-    <nav>
-      <a href="#approach">Approach</a>
-      <a href="#benefits">Benefits</a>
-      <a href="#membership">Membership</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-    <a href="https://whop.com/simply-trading-b0/simply-trading-b0/?utm_source=store_page&funnelId=store_74e2c187-fb89-4824-9cc8-9c869190f368" target="_blank" class="btn btn-primary">Join on Whop</a>
-  </div>
-</header>
-
-<!-- HERO -->
-<section class="hero" id="top">
-  <div class="container">
-    <h1>Advanced Trading Education & Community</h1>
-    <p>Structured learning, live context, and a professional trader community designed to help you think differently about markets.</p>
-    <div class="hero-ctas">
-      <a href="https://whop.com/simply-trading-b0/simply-trading-b0/?utm_source=store_page&funnelId=store_74e2c187-fb89-4824-9cc8-9c869190f368" target="_blank" class="btn btn-primary">Start Your Membership</a>
-      <a href="https://whop.com/discover/simply-trading-b0/" target="_blank" class="btn btn-outline">View Whop Listing</a>
+    <!-- ========== APPROACH / PHILOSOPHY ========== -->
+  <section id="approach">
+    <div class="container">
+      <div class="visual-grid">
+        <div>
+          <div class="visual-tag">Our Philosophy</div>
+          <h2>Our Approach to Professional Trading Education</h2>
+          <p>We emphasize understanding over signals. Every concept you encounter in the community is framed with context, risk management, and repeatable frameworks.</p>
+          <ul style="margin-top:1rem;list-style:disc;padding-left:1.4rem;color:var(--text-soft);">
+            <li>Pre-market preparation and setups that make sense</li>
+            <li>Live analysis with explanation — not just entry/exit alerts</li>
+            <li>Ongoing discussion about how markets behave in real time</li>
+          </ul>
+        </div>
+        <div class="visual-media">
+          <div class="frame">
+            <img src="images/trader-multimonitor.jpg" alt="Trader watching multiple trading monitors">
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- APPROACH, BENEFITS, TESTIMONIALS, PRICING, FAQ, FOOTER -->
-<!-- (Due to length constraints, the remaining sections would follow — but the answer will continue below.) -->
+  <!-- ========== BENEFITS ========== -->
+  <section id="benefits">
+    <div class="container">
+      <div class="visual-grid">
+        <div class="visual-media">
+          <div class="frame">
+            <img src="images/trader-laptop.jpg" alt="Trader using laptop and large monitor for charts">
+          </div>
+        </div>
+        <div>
+          <div class="visual-tag">What You Get</div>
+          <h2>Benefits of Joining Simply Trading</h2>
+          <ul style="margin-top:1rem;list-style:disc;padding-left:1.4rem;color:var(--text-soft);">
+            <li>Education that teaches how markets work — not just signals</li>
+            <li>Live context — see trades explained as they unfold</li>
+            <li>Clear, repeatable trading frameworks you can adapt</li>
+            <li>Supportive community for questions and feedback</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ========== TESTIMONIALS ========== -->
   <section id="testimonials">
     <div class="container">
@@ -356,10 +301,10 @@
     </div>
   </section>
 
-  <!-- ========== PRICING ========== -->
+  <!-- ========== PRICING SECTION ========== -->
   <section id="membership">
     <div class="container">
-      <h2 style="text-align:center; margin-bottom:0.5rem;">Membership & Pricing Options</h2>
+      <h2 style="text-align:center; margin-bottom:0.7rem;">Membership & Pricing Options</h2>
 
       <div class="pricing-toggle">
         <button class="active" onclick="setPricing('weekly')">Weekly</button>
@@ -367,18 +312,18 @@
         <button onclick="setPricing('annual')">Annual (Best Value)</button>
       </div>
 
-      <div class="container visual-grid" style="margin-top:1.5rem; text-align:center;">
+      <div class="visual-grid" style="text-align:center; margin-top:1.7rem;">
 
-        <!-- Visitor / Free Tier -->
-        <div class="frame" style="padding:1.6rem;">
+        <!-- Visitor Free Tier -->
+        <div class="frame" style="padding:1.5rem;">
           <h3>Visitor</h3>
-          <p>Free — Preview access to environment & community</p>
-          <p style="font-size:1.1rem; margin-top:0.4rem;"><strong>Free</strong></p>
-          <a href="https://whop.com/discover/simply-trading-b0/" target="_blank" class="btn btn-outline" style="margin-top:0.8rem;">View Free Tier</a>
+          <p>Free — Preview access to the environment & community</p>
+          <p style="font-size:1.05rem; margin-top:0.4rem;"><strong>Free</strong></p>
+          <a href="https://whop.com/discover/simply-trading-b0/" target="_blank" class="btn btn-outline" style="margin-top:0.7rem;">View Free Tier</a>
         </div>
 
-        <!-- ST Premier Tier -->
-        <div class="frame" style="padding:1.6rem;">
+        <!-- ST Premier Paid Tier -->
+        <div class="frame" style="padding:1.5rem;">
           <h3>ST Premier</h3>
           <p id="pricingValue" style="font-size:1.5rem; font-weight:600; margin-top:0.4rem;">$49.99 / week</p>
           <p style="margin-top:0.4rem;">Full community access with structured education and live sessions.</p>
@@ -425,7 +370,7 @@
       <div class="popup-close" onclick="closePopup()">×</div>
       <h3>Stay informed with Simply Trading updates.</h3>
       <p>Enter your email to receive news, tips, and updates:</p>
-      <input type="email" id="popupEmail" placeholder="your email" style="width:100%; padding:0.7rem; border-radius:8px; border:1px solid var(--border-soft); margin-bottom:0.8rem;">
+      <input type="email" id="popupEmail" placeholder="Your email address" style="width:100%; padding:0.7rem; border-radius:8px; border:1px solid var(--border-soft); margin-bottom:0.8rem;">
       <button class="btn btn-primary" onclick="submitEmail()">Submit</button>
     </div>
   </div>
@@ -433,7 +378,7 @@
   <!-- ========== FOOTER ========== -->
   <footer>
     <div class="container">
-      <div>&copy; <span id="year"></span> Simply Trading</div>
+      <div>&copy; <span id="year"></span> Simply Trading. All rights reserved.</div>
       <div style="margin-top:0.5rem;">
         <a href="mailto:bentelle.st@gmail.com">Contact</a> •
         <a href="https://x.com/SimplyTradingCo" target="_blank">X</a> •
@@ -444,7 +389,7 @@
 
   <!-- ========== JAVASCRIPT ========== -->
   <script>
-    // Pricing Toggle Logic
+    // Pricing Toggle
     function setPricing(option) {
       const priceEl = document.getElementById("pricingValue");
       document.querySelectorAll('.pricing-toggle button').forEach(btn => btn.classList.remove('active'));
@@ -460,40 +405,61 @@
       }
     }
 
-    // Simple Testimonial Carousel
+    // Testimonial Carousel
     let testimonialIndex = 0;
     const slides = document.querySelectorAll('.testimonial-slide');
-    function showTestimonials() {
+    function rotateTestimonials() {
       slides.forEach(s => s.classList.remove('active'));
       testimonialIndex = (testimonialIndex + 1) % slides.length;
       slides[testimonialIndex].classList.add('active');
     }
-    setInterval(showTestimonials, 5000);
+    setInterval(rotateTestimonials, 5000);
 
     // Scroll-triggered Email Popup
     let popupShown = false;
     window.addEventListener('scroll', function() {
-      if (!popupShown && window.scrollY > (document.body.scrollHeight / 3)) {
+      if (!popupShown && window.scrollY > document.body.scrollHeight / 3) {
         document.getElementById('emailPopup').style.display = 'flex';
         popupShown = true;
       }
     });
 
-    function closePopup() {
-      document.getElementById('emailPopup').style.display = 'none';
-    }
+    function closePopup() { document.getElementById('emailPopup').style.display = 'none'; }
 
     function submitEmail() {
       const email = document.getElementById('popupEmail').value;
       if (email) {
-        // Simple mailto fallback
         window.location.href = `mailto:bentelle.st@gmail.com?subject=New subscriber&body=${email}`;
         closePopup();
       }
     }
 
-    // Dynamic year
-    document.getElementById("year").textContent = new Date().getFullYear();
+    // Dynamic Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* Ambient gradient animation */
+    const ambientBG = document.createElement('canvas');
+    ambientBG.id = "ambientBG";
+    document.body.prepend(ambientBG);
+    const ctx = ambientBG.getContext('2d');
+    let w, h, gradientShift = 0;
+    function resizeCanvas() {
+      w = ambientBG.width = window.innerWidth;
+      h = ambientBG.height = window.innerHeight;
+    }
+    window.onresize = resizeCanvas;
+    resizeCanvas();
+    function animateBG() {
+      gradientShift += 0.22;
+      const grad = ctx.createLinearGradient(0,0,w,h);
+      grad.addColorStop(0, `rgba(174,116,42,0.06)`);
+      grad.addColorStop(0.5, `rgba(97,146,78,0.05)`);
+      grad.addColorStop(1, `rgba(174,116,42,0.06)`);
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, w, h);
+      requestAnimationFrame(animateBG);
+    }
+    animateBG();
   </script>
 
 </body>
