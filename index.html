@@ -98,6 +98,18 @@ body {
       gap: 0.75rem;
     }
 
+.brand-logo-plain {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin-right: 0.6rem;
+}
+
+.brand-logo-plain img {
+  height: 46px; /* adjust if needed */
+  width: auto;
+}
+
     .brand-logo {
   width: 42px;
   height: 42px;
@@ -1071,9 +1083,10 @@ body {
       <div class="container">
         <div class="nav-inner" id="navInner">
           <a href="#top" class="brand">
-            <div class="brand-logo">
-              <img src="assets/simply-trading-logo.jpg" alt="Simply Trading logo">
-            </div>
+            <div class="brand-logo-plain">
+              <div class="brand-logo-plain">
+               <img src="assets/simply-trading-logo.jpg?" alt="Simply Trading logo">
+              </div>
             <div class="brand-text">
               <span class="brand-name">Simply Trading</span>
               <span class="brand-subtitle">Education · Community · Discipline</span>
