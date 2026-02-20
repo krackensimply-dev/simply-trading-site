@@ -2,1074 +2,971 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Simply Trading | Learn the Markets. Trade with a Team.</title>
+  <title>Simply Trading – Trading Education & Community</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Simply Trading is a flat-fee trading community with live callouts, education, and support. Learn proven strategies. No financial advice."
+    content="Simply Trading is a private trading community focused on options and index trading. Learn structured strategies, follow live analysis, and grow with a serious group of traders."
   />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
-    rel="stylesheet"
-  />
+
   <style>
-  :root {
-    /* Core brand system */
-    --bg: #010101;
-    --bg-soft: #111111;
-    --bg-softer: #171717;
-
-    --primary: #61924E;          /* Deep Trading Green */
-    --primary-soft: rgba(97, 146, 78, 0.16);
-
-    --accent: #AE742A;           /* Market Gold */
-    --accent-soft: #FFDC7E;      /* Soft Gold */
-
-    --border-subtle: rgba(148, 163, 184, 0.18);
-    --text: #e5e7eb;
-    --text-soft: #9ca3af;
-    --danger: #f97373;
-
-    --radius-lg: 18px;
-    --radius-xl: 24px;
-    --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.85);
-    --max-width: 1120px;
-  }
-
-  * {
-    box-sizing: border-box;
-  }
-
-  body {
-    margin: 0;
-    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    background:
-      radial-gradient(circle at top, rgba(255, 220, 126, 0.12) 0, transparent 35%),
-      radial-gradient(circle at 10% 90%, rgba(97, 146, 78, 0.22) 0, transparent 45%),
-      #010101;
-    color: var(--text);
-    -webkit-font-smoothing: antialiased;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  img {
-    max-width: 100%;
-    display: block;
-  }
-
-  .page {
-    min-height: 100vh;
-  }
-
-  /* Layout */
-
-  .container {
-    width: 100%;
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 1.5rem;
-  }
-
-  /* Nav */
-
-  .nav {
-    position: sticky;
-    top: 0;
-    z-index: 40;
-    backdrop-filter: blur(18px);
-    background: linear-gradient(
-      to bottom,
-      rgba(1, 1, 1, 0.96),
-      rgba(1, 1, 1, 0.88),
-      transparent
-    );
-    border-bottom: 1px solid var(--border-subtle);
-  }
-
-  .nav-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.85rem 0;
-    gap: 1.5rem;
-  }
-
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .brand-logo {
-    width: 36px;
-    height: 36px;
-    border-radius: 999px;
-    background: radial-gradient(
-      circle at 30% 0,
-      var(--accent-soft),
-      var(--accent) 45%,
-      var(--bg) 100%
-    );
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow:
-      0 0 0 1px rgba(255, 220, 126, 0.3),
-      0 10px 20px rgba(0, 0, 0, 0.8);
-    font-family: "Space Grotesk", system-ui, sans-serif;
-    font-weight: 700;
-    font-size: 1.1rem;
-    letter-spacing: 0.05em;
-    color: #f9fafb;
-  }
-
-  .brand-text {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .brand-name {
-    font-family: "Space Grotesk", system-ui, sans-serif;
-    font-weight: 600;
-    font-size: 1.05rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .brand-subtitle {
-    font-size: 0.7rem;
-    color: var(--text-soft);
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-  }
-
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 1.4rem;
-    font-size: 0.9rem;
-    color: var(--text-soft);
-  }
-
-  .nav-links a {
-    position: relative;
-    padding: 0.15rem 0;
-  }
-
-  .nav-links a::after {
-    content: "";
-    position: absolute;
-    inset-inline: 0;
-    bottom: -0.25rem;
-    height: 1px;
-    border-radius: 999px;
-    background: linear-gradient(
-      to right,
-      transparent,
-      var(--primary),
-      transparent
-    );
-    opacity: 0;
-    transform: scaleX(0.4);
-    transform-origin: center;
-    transition: opacity 0.16s ease, transform 0.16s ease;
-  }
-
-  .nav-links a:hover::after {
-    opacity: 1;
-    transform: scaleX(1);
-  }
-
-  .nav-cta {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .badge-flat {
-    font-size: 0.7rem;
-    padding: 0.2rem 0.65rem;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 220, 126, 0.6);
-    color: var(--accent);
-    background:
-      radial-gradient(circle at 0 0, rgba(97, 146, 78, 0.2), transparent 60%);
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    white-space: nowrap;
-  }
-
-  .btn {
-    border-radius: 999px;
-    padding: 0.55rem 1.25rem;
-    border: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    transition:
-      transform 0.12s ease,
-      box-shadow 0.12s ease,
-      background 0.12s ease,
-      opacity 0.12s ease;
-    white-space: nowrap;
-  }
-
-  .btn-primary {
-    background: linear-gradient(
-      135deg,
-      var(--accent),
-      var(--primary)
-    );
-    color: #fefce8;
-    box-shadow:
-      0 0 20px rgba(255, 220, 126, 0.35),
-      0 10px 30px rgba(0, 0, 0, 0.85);
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-1px);
-    box-shadow:
-      0 0 32px rgba(255, 220, 126, 0.55),
-      0 18px 45px rgba(0, 0, 0, 0.95);
-  }
-
-  .btn-outline {
-    background: transparent;
-    color: var(--text-soft);
-    border: 1px solid rgba(148, 163, 184, 0.5);
-  }
-
-  .btn-outline:hover {
-    border-color: var(--primary);
-    color: var(--text);
-    background: rgba(17, 24, 39, 0.85);
-  }
-
-  .nav-toggle {
-    display: none;
-    border-radius: 999px;
-    border: 1px solid rgba(148, 163, 184, 0.6);
-    background: rgba(15, 23, 42, 0.9);
-    padding: 0.35rem 0.65rem;
-    font-size: 0.8rem;
-    color: var(--text-soft);
-    cursor: pointer;
-  }
-
-  /* Hero */
-
-  .hero {
-    padding: 3.5rem 0 3rem;
-  }
-
-  .hero-inner {
-    display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr);
-    gap: 2.75rem;
-    align-items: center;
-  }
-
-  .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.18rem 0.6rem;
-    border-radius: 999px;
-    background: rgba(17, 24, 39, 0.9);
-    border: 1px solid var(--border-subtle);
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    color: var(--text-soft);
-    margin-bottom: 1.1rem;
-  }
-
-  .eyebrow-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 999px;
-    background: var(--primary);
-    box-shadow: 0 0 0 6px rgba(97, 146, 78, 0.25);
-  }
-
-  .hero-title {
-    font-family: "Space Grotesk", system-ui, sans-serif;
-    font-size: clamp(2.2rem, 3.3vw, 2.8rem);
-    line-height: 1.08;
-    margin: 0 0 1rem;
-  }
-
-  .hero-title span.highlight {
-    background: linear-gradient(
-      to right,
-      var(--accent-soft),
-      var(--primary)
-    );
-    -webkit-background-clip: text;
-    color: transparent;
-  }
-
-  .hero-subtitle {
-    font-size: 0.98rem;
-    color: var(--text-soft);
-    max-width: 31rem;
-    line-height: 1.6;
-    margin-bottom: 1.4rem;
-  }
-
-  .hero-subtitle strong {
-    color: #e5e7eb;
-    font-weight: 500;
-  }
-
-  .hero-cta-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
-    align-items: center;
-    margin-bottom: 1.25rem;
-  }
-
-  .hero-note {
-    font-size: 0.8rem;
-    color: var(--text-soft);
-  }
-
-  .hero-note span {
-    color: var(--accent);
-    font-weight: 500;
-  }
-
-  .hero-disclaimer {
-    font-size: 0.7rem;
-    color: var(--text-soft);
-    max-width: 30rem;
-    line-height: 1.5;
-    opacity: 0.85;
-  }
-
-  /* Hero "dashboard" card */
-
-  .hero-card {
-    position: relative;
-    background: radial-gradient(
-      circle at top,
-      rgba(97, 146, 78, 0.4),
-      #020617 52%,
-      #000 100%
-    );
-    border-radius: var(--radius-xl);
-    padding: 1.4rem 1.4rem 1.2rem;
-    border: 1px solid rgba(97, 146, 78, 0.6);
-    box-shadow: var(--shadow-soft);
-    overflow: hidden;
-  }
-
-  .hero-card::before {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    background: conic-gradient(
-      from 210deg,
-      rgba(255, 220, 126, 0.25),
-      transparent,
-      rgba(97, 146, 78, 0.45),
-      transparent
-    );
-    mix-blend-mode: soft-light;
-    opacity: 0.7;
-    pointer-events: none;
-  }
-
-  .hero-card-inner {
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero-card-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1.1rem;
-  }
-
-  .hc-title {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    color: var(--text-soft);
-  }
-
-  .hc-pill {
-    font-size: 0.7rem;
-    padding: 0.15rem 0.55rem;
-    border-radius: 999px;
-    background: rgba(1, 1, 1, 0.92);
-    border: 1px solid rgba(255, 220, 126, 0.6);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-  }
-
-  .hc-pill-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 999px;
-    background: var(--accent-soft);
-    box-shadow: 0 0 0 4px rgba(255, 220, 126, 0.3);
-  }
-
-  .hc-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.75rem;
-    margin-bottom: 1.1rem;
-  }
-
-  .hc-card {
-    background: rgba(0, 0, 0, 0.86);
-    border-radius: 16px;
-    padding: 0.65rem 0.75rem;
-    border: 1px solid rgba(148, 163, 184, 0.32);
-  }
-
-  .hc-label {
-    font-size: 0.7rem;
-    color: var(--text-soft);
-    margin-bottom: 0.2rem;
-  }
-
-  .hc-main {
-    display: flex;
-    align-items: baseline;
-    gap: 0.25rem;
-  }
-
-  .hc-value {
-    font-family: "Space Grotesk", system-ui, sans-serif;
-    font-weight: 600;
-    font-size: 1rem;
-  }
-
-  .hc-chip {
-    font-size: 0.7rem;
-    padding: 0.05rem 0.4rem;
-    border-radius: 999px;
-    border: 1px solid rgba(97, 146, 78, 0.6);
-    color: var(--accent-soft);
-    background: rgba(97, 146, 78, 0.25);
-  }
-
-  .hc-chip.red {
-    border-color: rgba(248, 113, 113, 0.6);
-    color: #fecaca;
-    background: rgba(127, 29, 29, 0.3);
-  }
-
-  .hc-footnote {
-    font-size: 0.65rem;
-    color: var(--text-soft);
-    opacity: 0.9;
-  }
-
-  .hc-footnote span {
-    color: #e5e7eb;
-  }
-
-  /* Stats strip */
-
-  .stats-strip {
-    padding: 0.6rem 0 2.3rem;
-  }
-
-  .stats-row {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
-  }
-
-  .stat-card {
-    background: radial-gradient(
-      circle at top left,
-      rgba(97, 146, 78, 0.24),
-      rgba(0, 0, 0, 0.95)
-    );
-    border-radius: var(--radius-lg);
-    padding: 0.8rem 0.9rem;
-    border: 1px solid var(--border-subtle);
-  }
-
-  .stat-label {
-    font-size: 0.7rem;
-    color: var(--text-soft);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    margin-bottom: 0.35rem;
-  }
-
-  .stat-value {
-    font-family: "Space Grotesk", system-ui, sans-serif;
-    font-size: 1.15rem;
-    font-weight: 600;
-  }
-
-  .stat-tag {
-    font-size: 0.7rem;
-    color: var(--accent-soft);
-    margin-top: 0.2rem;
-  }
-
-  /* Sections */
-
-  section {
-    padding: 3rem 0;
-  }
-
-  .section-header {
-    margin-bottom: 1.8rem;
-  }
-
-  .section-eyebrow {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: var(--text-soft);
-    margin-bottom: 0.5rem;
-  }
-
-  .section-title {
-    font-family: "Space Grotesk", system-ui, sans-serif;
-    font-size: 1.5rem;
-    margin: 0 0 0.4rem;
-  }
-
-  .section-subtitle {
-    font-size: 0.9rem;
-    color: var(--text-soft);
-    max-width: 32rem;
-    line-height: 1.6;
-  }
-
-  /* How it works */
-
-  .how-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.4rem;
-  }
-
-  .how-card {
-    background: var(--bg-soft);
-    border-radius: var(--radius-lg);
-    padding: 1rem;
-    border: 1px solid var(--border-subtle);
-  }
-
-  .how-step {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    color: var(--text-soft);
-    margin-bottom: 0.35rem;
-  }
-
-  .how-title {
-    font-weight: 600;
-    margin-bottom: 0.4rem;
-  }
-
-  .how-body {
-    font-size: 0.85rem;
-    color: var(--text-soft);
-    line-height: 1.6;
-  }
-
-  /* Features */
-
-  .features-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
-    gap: 2rem;
-    align-items: flex-start;
-  }
-
-  .feature-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.1rem;
-  }
-
-  .feature-card {
-    background: var(--bg-soft);
-    border-radius: var(--radius-lg);
-    padding: 0.9rem;
-    border: 1px solid var(--border-subtle);
-  }
-
-  .feature-tag {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--text-soft);
-    margin-bottom: 0.2rem;
-  }
-
-  .feature-title {
-    font-size: 0.95rem;
-    font-weight: 600;
-    margin-bottom: 0.35rem;
-  }
-
-  .feature-body {
-    font-size: 0.85rem;
-    color: var(--text-soft);
-    line-height: 1.6;
-  }
-
-  .feature-body strong {
-    color: #e5e7eb;
-    font-weight: 500;
-  }
-
-  .feature-note {
-    font-size: 0.75rem;
-    color: var(--text-soft);
-    margin-top: 0.5rem;
-  }
-
-  .feature-highlight {
-    background: radial-gradient(
-      circle at top,
-      rgba(174, 116, 42, 0.35),
-      rgba(0, 0, 0, 0.98)
-    );
-    border-radius: var(--radius-xl);
-    padding: 1rem 1rem 1.1rem;
-    border: 1px solid rgba(174, 116, 42, 0.75);
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.9);
-  }
-
-  .feature-highlight h3 {
-    margin: 0 0 0.45rem;
-    font-size: 1rem;
-    font-weight: 600;
-  }
-
-  .feature-highlight p {
-    margin: 0 0 0.4rem;
-    font-size: 0.85rem;
-    color: var(--text-soft);
-    line-height: 1.6;
-  }
-
-  .feature-highlight ul {
-    margin: 0.4rem 0 0.6rem;
-    padding-left: 1.1rem;
-    font-size: 0.82rem;
-    color: var(--text-soft);
-  }
-
-  .feature-highlight li + li {
-    margin-top: 0.1rem;
-  }
-
-  /* Pricing */
-
-  .pricing-card {
-    background: radial-gradient(
-      circle at top,
-      rgba(97, 146, 78, 0.42),
-      rgba(0, 0, 0, 0.97)
-    );
-    border-radius: var(--radius-xl);
-    padding: 1.4rem 1.3rem;
-    border: 1px solid rgba(97, 146, 78, 0.7);
-    box-shadow: var(--shadow-soft);
-    max-width: 480px;
-  }
-
-  .pricing-pill {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    color: var(--accent-soft);
-    margin-bottom: 0.4rem;
-  }
-
-  .pricing-price-row {
-    display: flex;
-    align-items: baseline;
-    gap: 0.4rem;
-    margin-bottom: 0.4rem;
-  }
-
-  .pricing-main {
-    font-family: "Space Grotesk", system-ui, sans-serif;
-    font-size: 2rem;
-    font-weight: 600;
-  }
-
-  .pricing-period {
-    font-size: 0.85rem;
-    color: #bbf7d0;
-  }
-
-  .pricing-sub {
-    font-size: 0.85rem;
-    color: #d1fae5;
-    margin-bottom: 0.75rem;
-  }
-
-  .pricing-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 0.9rem;
-    font-size: 0.82rem;
-    color: var(--text-soft);
-  }
-
-  .pricing-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.4rem;
-  }
-
-  .pricing-list li + li {
-    margin-top: 0.25rem;
-  }
-
-  .pricing-bullet {
-    margin-top: 0.2rem;
-    font-size: 0.9rem;
-  }
-
-  .pricing-fine {
-    font-size: 0.7rem;
-    color: var(--text-soft);
-    opacity: 0.9;
-  }
-
-  /* Community */
-
-  .community-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-    gap: 2rem;
-    align-items: center;
-  }
-
-  .community-card {
-    background: var(--bg-soft);
-    border-radius: var(--radius-xl);
-    padding: 1rem 1.1rem;
-    border: 1px solid var(--border-subtle);
-  }
-
-  .community-badge {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: var(--text-soft);
-    margin-bottom: 0.35rem;
-  }
-
-  .community-main {
-    font-size: 0.95rem;
-    color: var(--text-soft);
-    line-height: 1.6;
-    margin-bottom: 0.7rem;
-  }
-
-  .community-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    font-size: 0.7rem;
-  }
-
-  .community-tag {
-    border-radius: 999px;
-    border: 1px solid rgba(148, 163, 184, 0.5);
-    padding: 0.15rem 0.55rem;
-    color: var(--text-soft);
-    background: rgba(15, 23, 42, 0.7);
-  }
-
-  .community-mock {
-    background: radial-gradient(
-      circle at top left,
-      rgba(174, 116, 42, 0.4),
-      rgba(0, 0, 0, 0.98)
-    );
-    border-radius: 32px;
-    padding: 0.9rem 0.9rem 1.2rem;
-    border: 1px solid rgba(174, 116, 42, 0.7);
-    box-shadow: var(--shadow-soft);
-  }
-
-  .community-header-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 0.65rem;
-    font-size: 0.8rem;
-  }
-
-  .community-server {
-    font-weight: 600;
-  }
-
-  .community-status {
-    font-size: 0.7rem;
-    color: #bbf7d0;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.25rem;
-  }
-
-  .status-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 999px;
-    background: var(--primary);
-    box-shadow: 0 0 12px rgba(97, 146, 78, 0.85);
-  }
-
-  .community-messages {
-    display: grid;
-    gap: 0.4rem;
-    font-size: 0.78rem;
-  }
-
-  .msg {
-    background: rgba(0, 0, 0, 0.78);
-    border-radius: 14px;
-    padding: 0.45rem 0.55rem;
-    border: 1px solid rgba(148, 163, 184, 0.35);
-  }
-
-  .msg-label {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--text-soft);
-    margin-bottom: 0.15rem;
-  }
-
-  .msg-main {
-    font-size: 0.8rem;
-  }
-
-  .msg-main span {
-    color: var(--accent-soft);
-  }
-
-  .msg-small {
-    font-size: 0.7rem;
-    color: var(--text-soft);
-    margin-top: 0.2rem;
-  }
-
-  /* FAQ */
-
-  .faq-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-    gap: 2rem;
-    align-items: flex-start;
-  }
-
-  .faq-list {
-    display: grid;
-    gap: 0.8rem;
-  }
-
-  .faq-item {
-    background: var(--bg-soft);
-    border-radius: var(--radius-lg);
-    padding: 0.9rem;
-    border: 1px solid var(--border-subtle);
-  }
-
-  .faq-q {
-    font-size: 0.9rem;
-    font-weight: 500;
-    margin-bottom: 0.25rem;
-  }
-
-  .faq-a {
-    font-size: 0.82rem;
-    color: var(--text-soft);
-    line-height: 1.6;
-  }
-
-  .faq-note {
-    font-size: 0.78rem;
-    color: var(--text-soft);
-  }
-
-  /* Risk Disclaimer */
-
-  .disclaimer {
-    background: radial-gradient(
-      circle at top,
-      rgba(248, 113, 113, 0.22),
-      rgba(0, 0, 0, 0.98)
-    );
-    border-radius: var(--radius-xl);
-    padding: 1.2rem 1.1rem;
-    border: 1px solid rgba(248, 113, 113, 0.85);
-    max-width: 920px;
-    margin: 0 auto 2.5rem;
-  }
-
-  .disclaimer-title {
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    color: #fecaca;
-    margin-bottom: 0.35rem;
-  }
-
-  .disclaimer-body {
-    font-size: 0.8rem;
-    color: #fecaca;
-    line-height: 1.7;
-  }
-
-  /* Footer */
-
-  .footer {
-    border-top: 1px solid rgba(55, 65, 81, 0.9);
-    padding: 1.8rem 0 2.4rem;
-    font-size: 0.8rem;
-    color: var(--text-soft);
-    background: #010101;
-  }
-
-  .footer-inner {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 1rem;
-    align-items: center;
-  }
-
-  .footer-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.9rem;
-  }
-
-  .footer-links a {
-    color: var(--text-soft);
-  }
-
-  .footer-links a:hover {
-    color: var(--accent-soft);
-  }
-
-  .footer-small {
-    font-size: 0.7rem;
-    opacity: 0.9;
-  }
-
-  /* Responsive */
-
-  @media (max-width: 900px) {
-    .hero-inner,
-    .features-layout,
-    .community-grid,
-    .faq-grid {
-      grid-template-columns: minmax(0, 1fr);
+    :root {
+      --bg: #010101;
+      --bg-elevated: #111318;
+      --bg-soft: #181b22;
+      --primary: #61924E;      /* Deep Trading Green */
+      --primary-soft: rgba(97, 146, 78, 0.18);
+      --accent: #AE742A;       /* Gold CTA */
+      --accent-soft: #FFDC7E;  /* Soft highlight */
+      --border-subtle: rgba(148, 163, 184, 0.25);
+      --text: #e5e7eb;
+      --text-soft: #9ca3af;
+      --danger: #f97373;
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.75);
+      --max-width: 1120px;
     }
 
-    .hero-inner {
-      gap: 2.1rem;
+    * {
+      box-sizing: border-box;
     }
 
-    .stats-row,
-    .how-grid,
-    .feature-grid {
-      grid-template-columns: minmax(0, 1fr);
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter",
+        sans-serif;
+      background:
+        radial-gradient(circle at 0 0, rgba(255, 220, 126, 0.06) 0, transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(97, 146, 78, 0.18) 0, transparent 55%),
+        var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
     }
 
-    .hero-card {
-      max-width: 440px;
-      margin-inline: auto;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
-  }
 
-  @media (max-width: 760px) {
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* NAV */
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to bottom,
+        rgba(1, 1, 1, 0.96),
+        rgba(1, 1, 1, 0.9),
+        transparent
+      );
+      border-bottom: 1px solid rgba(31, 41, 55, 0.9);
+    }
+
     .nav-inner {
+      display: flex;
       align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 0;
+      gap: 1.5rem;
     }
 
-    .nav-links,
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: #0b0f11;
+      border: 1px solid rgba(255, 220, 126, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.06em;
+      color: var(--accent-soft);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-subtitle {
+      font-size: 0.7rem;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 0.15rem 0;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -0.25rem;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--primary);
+      opacity: 0;
+      transform: scaleX(0.4);
+      transform-origin: center;
+      transition: opacity 0.16s ease, transform 0.16s ease;
+    }
+
+    .nav-links a:hover::after {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+
     .nav-cta {
-      display: none;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .badge-flat {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 220, 126, 0.7);
+      color: var(--accent-soft);
+      background: rgba(17, 24, 39, 0.96);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      white-space: nowrap;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.55rem 1.25rem;
+      border: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition:
+        transform 0.12s ease,
+        box-shadow 0.12s ease,
+        background 0.12s ease,
+        opacity 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fefce8;
+      box-shadow:
+        0 0 20px rgba(255, 220, 126, 0.25),
+        0 10px 32px rgba(0, 0, 0, 0.9);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      background: #c1812f;
+      box-shadow:
+        0 0 28px rgba(255, 220, 126, 0.4),
+        0 16px 42px rgba(0, 0, 0, 0.95);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-soft);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--text);
+      background: rgba(15, 23, 42, 0.9);
     }
 
     .nav-toggle {
-      display: inline-flex;
+      display: none;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: #111827;
+      padding: 0.35rem 0.7rem;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      cursor: pointer;
     }
+
+    /* HERO */
 
     .hero {
-      padding-top: 2.5rem;
+      padding: 3.5rem 0 3rem;
     }
 
-    .stats-strip {
-      padding-top: 0.2rem;
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+      gap: 2.75rem;
+      align-items: center;
     }
-  }
 
-  /* Simple mobile menu reveal */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      margin-bottom: 1.1rem;
+    }
 
-  @media (max-width: 760px) {
-    .nav-open .nav-links,
-    .nav-open .nav-cta {
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--primary);
+      box-shadow: 0 0 0 5px rgba(97, 146, 78, 0.35);
+    }
+
+    .hero-title {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: clamp(2.3rem, 3.4vw, 2.9rem);
+      line-height: 1.08;
+      margin: 0 0 1rem;
+    }
+
+    .hero-title span.highlight {
+      color: var(--accent-soft);
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--text-soft);
+      max-width: 32rem;
+      line-height: 1.6;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-subtitle strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .hero-cta-row {
       display: flex;
-    }
-
-    .nav-open .nav-links {
       flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 0.75rem;
+      gap: 0.8rem;
+      align-items: center;
+      margin-bottom: 1.1rem;
     }
 
-    .nav-open .nav-cta {
-      justify-content: center;
-      margin-top: 0.75rem;
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--text-soft);
     }
 
-    .nav {
-      background: rgba(1, 1, 1, 0.98);
+    .hero-note span {
+      color: var(--accent-soft);
+      font-weight: 500;
     }
 
-    .nav-inner {
+    .hero-disclaimer {
+      font-size: 0.7rem;
+      color: var(--text-soft);
+      max-width: 30rem;
+      line-height: 1.5;
+    }
+
+    /* Right-side hero card */
+
+    .hero-card {
+      background: var(--bg-elevated);
+      border-radius: var(--radius-xl);
+      padding: 1.4rem 1.3rem 1.2rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .hc-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+    }
+
+    .hc-badge {
+      font-size: 0.7rem;
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: var(--text-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .hc-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.9);
+    }
+
+    .hc-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .hc-card {
+      background: var(--bg-soft);
+      border-radius: 14px;
+      padding: 0.7rem 0.75rem;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
+
+    .hc-label {
+      font-size: 0.72rem;
+      color: var(--text-soft);
+      margin-bottom: 0.15rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .hc-main {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.3rem;
+    }
+
+    .hc-value {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .hc-chip {
+      font-size: 0.72rem;
+      padding: 0.05rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(97, 146, 78, 0.7);
+      color: #bbf7d0;
+      background: rgba(22, 101, 52, 0.4);
+    }
+
+    .hc-chip.red {
+      border-color: rgba(248, 113, 113, 0.8);
+      color: #fecaca;
+      background: rgba(127, 29, 29, 0.45);
+    }
+
+    .hc-footnote {
+      font-size: 0.72rem;
+      color: var(--text-soft);
+      line-height: 1.5;
+    }
+
+    .hc-footnote span {
+      color: #e5e7eb;
+    }
+
+    /* STATS */
+
+    .stats {
+      padding: 0.6rem 0 2rem;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .stat-card {
+      background: var(--bg-elevated);
+      border-radius: var(--radius-lg);
+      padding: 0.8rem 0.9rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-soft);
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-value {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+
+    .stat-note {
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      margin-top: 0.15rem;
+    }
+
+    /* SHARED SECTION STYLES */
+
+    section {
+      padding: 3rem 0;
+    }
+
+    .section-header {
+      margin-bottom: 1.6rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-soft);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 1.5rem;
+      margin: 0 0 0.35rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      max-width: 32rem;
+      line-height: 1.6;
+    }
+
+    /* HOW IT WORKS */
+
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+
+    .how-card {
+      background: var(--bg-elevated);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .how-step {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      margin-bottom: 0.35rem;
+    }
+
+    .how-title {
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .how-body {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
+    /* FEATURES */
+
+    .features-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.1rem;
+    }
+
+    .feature-card {
+      background: var(--bg-elevated);
+      border-radius: var(--radius-lg);
+      padding: 0.9rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .feature-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-soft);
+      margin-bottom: 0.2rem;
+    }
+
+    .feature-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .feature-body {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
+    .feature-body strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .feature-highlight {
+      background: var(--bg-elevated);
+      border-radius: var(--radius-xl);
+      padding: 1rem 1.1rem;
+      border: 1px solid rgba(174, 116, 42, 0.75);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .feature-highlight h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .feature-highlight p {
+      margin: 0 0 0.4rem;
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
+    .feature-highlight ul {
+      margin: 0.5rem 0 0.4rem;
+      padding-left: 1.1rem;
+      font-size: 0.82rem;
+      color: var(--text-soft);
+    }
+
+    .feature-highlight li + li {
+      margin-top: 0.2rem;
+    }
+
+    /* PRICING */
+
+    .pricing-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .pricing-card {
+      background: var(--bg-elevated);
+      border-radius: var(--radius-xl);
+      padding: 1.4rem 1.3rem;
+      border: 1px solid rgba(174, 116, 42, 0.8);
+      box-shadow: var(--shadow-soft);
+      max-width: 480px;
+    }
+
+    .pricing-pill {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-soft);
+      margin-bottom: 0.35rem;
+    }
+
+    .pricing-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .pricing-main {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 2rem;
+      font-weight: 600;
+    }
+
+    .pricing-period {
+      font-size: 0.85rem;
+      color: #bbf7d0;
+    }
+
+    .pricing-sub {
+      font-size: 0.86rem;
+      color: #d1fae5;
+      margin-bottom: 0.7rem;
+    }
+
+    .pricing-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 0.9rem;
+      font-size: 0.82rem;
+      color: var(--text-soft);
+    }
+
+    .pricing-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+    }
+
+    .pricing-list li + li {
+      margin-top: 0.25rem;
+    }
+
+    .pricing-bullet {
+      margin-top: 0.22rem;
+      font-size: 0.92rem;
+    }
+
+    .pricing-fine {
+      font-size: 0.7rem;
+      color: var(--text-soft);
+    }
+
+    .visitor-card {
+      background: var(--bg-soft);
+      border-radius: var(--radius-lg);
+      padding: 0.9rem;
+      border: 1px solid var(--border-subtle);
+      font-size: 0.82rem;
+      color: var(--text-soft);
+    }
+
+    /* COMMUNITY MOCKUP */
+
+    .community-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .community-text {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
+    .community-tags {
+      display: flex;
       flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.7rem;
+      font-size: 0.75rem;
     }
-  }
-</style>
+
+    .community-tag {
+      padding: 0.15rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-elevated);
+      color: var(--text-soft);
+    }
+
+    .community-mock {
+      background: var(--bg-elevated);
+      border-radius: 32px;
+      padding: 0.9rem 0.9rem 1.2rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.8rem;
+    }
+
+    .community-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.6rem;
+    }
+
+    .community-server {
+      font-weight: 600;
+    }
+
+    .community-status {
+      font-size: 0.72rem;
+      color: #bbf7d0;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--primary);
+    }
+
+    .community-messages {
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .msg {
+      background: var(--bg-soft);
+      border-radius: 14px;
+      padding: 0.5rem 0.6rem;
+      border: 1px solid rgba(55, 65, 81, 0.95);
+    }
+
+    .msg-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-soft);
+      margin-bottom: 0.15rem;
+    }
+
+    .msg-main {
+      font-size: 0.8rem;
+    }
+
+    .msg-main span {
+      color: var(--accent-soft);
+    }
+
+    .msg-small {
+      font-size: 0.72rem;
+      color: var(--text-soft);
+      margin-top: 0.18rem;
+    }
+
+    /* FAQ */
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .faq-item {
+      background: var(--bg-elevated);
+      border-radius: var(--radius-lg);
+      padding: 0.9rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .faq-q {
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .faq-a {
+      font-size: 0.82rem;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
+    .faq-note {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    /* DISCLAIMER */
+
+    .disclaimer {
+      background: var(--bg-soft);
+      border-radius: var(--radius-xl);
+      padding: 1.2rem 1.1rem;
+      border: 1px solid rgba(248, 113, 113, 0.75);
+      max-width: 920px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .disclaimer-title {
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #fecaca;
+      margin-bottom: 0.35rem;
+    }
+
+    .disclaimer-body {
+      font-size: 0.8rem;
+      color: #fecaca;
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
+
+    .footer {
+      border-top: 1px solid rgba(31, 41, 55, 0.95);
+      padding: 1.8rem 0 2.3rem;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      background: #010101;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-soft);
+    }
+
+    .footer-small {
+      font-size: 0.7rem;
+      opacity: 0.9;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 900px) {
+      .hero-inner,
+      .features-layout,
+      .pricing-layout,
+      .community-grid,
+      .faq-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-inner {
+        gap: 2rem;
+      }
+
+      .stats-row,
+      .how-grid,
+      .feature-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-card,
+      .pricing-card {
+        max-width: 460px;
+        margin-inline: auto;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+      }
+
+      .nav-inner {
+        flex-wrap: wrap;
+      }
+
+      .nav-open .nav-links,
+      .nav-open .nav-cta {
+        display: flex;
+      }
+
+      .nav-open .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 0.6rem;
+      }
+
+      .nav-open .nav-cta {
+        justify-content: center;
+        margin-top: 0.4rem;
+      }
+
+      .hero {
+        padding-top: 2.6rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <div class="page">
+  <div class="page" id="top">
     <!-- NAV -->
     <header class="nav">
       <div class="container">
         <div class="nav-inner" id="navInner">
           <a href="#top" class="brand">
             <div class="brand-logo">
-              <!-- Replace ST with your eagle logo image if desired -->
+              <!-- Later: swap this for your SVG -->
               <span>ST</span>
             </div>
             <div class="brand-text">
@@ -1080,129 +977,152 @@
 
           <nav class="nav-links">
             <a href="#how">How it works</a>
-            <a href="#features">Features</a>
-            <a href="#education">Education</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#community">Community</a>
+            <a href="#features">What you get</a>
+            <a href="#pricing">Membership</a>
             <a href="#faq">FAQ</a>
           </nav>
 
           <div class="nav-cta">
-            <span class="badge-flat">Flat-fee · All-access</span>
-            <a href="https://whop.com/c/simply-trading-b0/insta" class="btn btn-primary">
-              Join Discord
-              <span>↗</span>
+            <span class="badge-flat">No signals · Just education</span>
+            <a
+              href="https://whop.com/simply-trading-b0/simply-trading-b0/?utm_source=store_page&funnelId=store_74e2c187-fb89-4824-9cc8-9c869190f368"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-primary"
+            >
+              Join on Whop
             </a>
           </div>
 
-          <button class="nav-toggle" type="button" id="navToggle">
-            Menu
-          </button>
+          <button class="nav-toggle" id="navToggle">Menu</button>
         </div>
       </div>
     </header>
 
-    <!-- HERO -->
-    <main id="top">
+    <main>
+      <!-- HERO -->
       <section class="hero">
         <div class="container">
           <div class="hero-inner">
             <div>
               <div class="eyebrow">
                 <span class="eyebrow-dot"></span>
-                <span>Live trading · education focused</span>
+                <span>Simply your path to trading better</span>
               </div>
-
               <h1 class="hero-title">
-                Learn the markets.<br />
-                <span class="highlight">Trade with a team.</span>
+                Learn to trade with a
+                <span class="highlight">serious, structured</span> community.
               </h1>
-
               <p class="hero-subtitle">
-                Simply Trading is a flat-fee community for traders who want more than random alerts.
-                Learn the <strong>why</strong> behind every setup, follow live callouts, and build repeatable processes
-                without paying per-channel upsells.
+                Simply Trading is a private community for traders who want clear education,
+                live market context, and honest feedback — not hype or blind alerts.
+                We focus on options and index trading with repeatable frameworks you can
+                make your own.
               </p>
 
               <div class="hero-cta-row">
-                <a href="https://whop.com/c/simply-trading-b0/insta" class="btn btn-primary">
-                  Join the Discord
-                  <span>↗</span>
+                <a
+                  href="https://whop.com/simply-trading-b0/simply-trading-b0/?utm_source=store_page&funnelId=store_74e2c187-fb89-4824-9cc8-9c869190f368"
+                  target="_blank"
+                  rel="noopener"
+                  class="btn btn-primary"
+                >
+                  Start membership on Whop
                 </a>
-                <a href="#pricing" class="btn btn-outline">
-                  View membership details
+
+                <a
+                  href="https://whop.com/discover/simply-trading-b0/"
+                  target="_blank"
+                  rel="noopener"
+                  class="btn btn-outline"
+                >
+                  View Whop listing
                 </a>
               </div>
 
               <p class="hero-note">
-                <span>One flat membership.</span> Full access to live callouts, education, classes, and support.
+                <span>4.9★ rated</span> community with live sessions, education, and
+                a supportive group of traders.
               </p>
-
               <p class="hero-disclaimer">
-                We teach strategies and share how our team trades. Nothing here is financial advice, investment
-                recommendations, or a guarantee of results. You are responsible for your own decisions and risk.
+                Educational community only. Nothing here is financial, investment, or tax
+                advice. You are responsible for your own trades and risk.
               </p>
             </div>
 
-            <!-- Hero "dashboard" / trade card -->
-            <div class="hero-card" aria-label="Sample trade callout layout">
-              <div class="hero-card-inner">
-                <div class="hero-card-header">
-                  <span class="hc-title">Live Callout · Example View</span>
-                  <span class="hc-pill">
-                    <span class="hc-pill-dot"></span>
-                    Session: New York Open
-                  </span>
+            <aside class="hero-card">
+              <div class="hero-card-header">
+                <span class="hc-title">Today’s session snapshot</span>
+                <div class="hc-badge">
+                  <span class="hc-badge-dot"></span>
+                  Live market commentary
                 </div>
+              </div>
 
-                <div class="hc-grid">
-                  <div class="hc-card">
-                    <div class="hc-label">Symbol · Plan</div>
-                    <div class="hc-main">
-                      <span class="hc-value">@SPY</span>
-                      <span class="hc-chip">Call scalp · 0DTE</span>
-                    </div>
-                    <div class="hc-footnote">
-                      Entry <span>506.2–506.7</span> · Risk <span>505.4</span> · Target <span>509+</span>
-                    </div>
-                  </div>
-
-                  <div class="hc-card">
-                    <div class="hc-label">Context</div>
-                    <div class="hc-main">
-                      <span class="hc-value">Liquidity grab</span>
-                    </div>
-                    <div class="hc-footnote">
-                      Above premarket high · watching volume + ES levels for confirmation.
-                    </div>
+              <div class="hc-grid">
+                <div class="hc-card">
+                  <div class="hc-label">SPX focus zone</div>
+                  <div class="hc-main">
+                    <div class="hc-value">5295–5330</div>
+                    <span class="hc-chip">Intraday levels</span>
                   </div>
                 </div>
-
-                <div class="hc-footnote">
-                  Example layout only. <span>We break down the levels, thesis, and risk on every callout.</span>
-                  Charts, context, and post-trade reviews are included on real trades.
+                <div class="hc-card">
+                  <div class="hc-label">Primary strategy</div>
+                  <div class="hc-main">
+                    <div class="hc-value">Trend + zones</div>
+                  </div>
                 </div>
+                <div class="hc-card">
+                  <div class="hc-label">Risk per idea</div>
+                  <div class="hc-main">
+                    <div class="hc-value">1R</div>
+                    <span class="hc-chip red">Pre-defined</span>
+                  </div>
+                </div>
+                <div class="hc-card">
+                  <div class="hc-label">Focus</div>
+                  <div class="hc-main">
+                    <div class="hc-value">SPX · NQ</div>
+                  </div>
+                </div>
+              </div>
+
+              <p class="hc-footnote">
+                This is the type of structure you see in the room: clear zones, trade
+                ideas with risk defined <span>before</span> entries, and ongoing
+                conversation about how the day is actually unfolding.
+              </p>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- STATS -->
+      <section class="stats">
+        <div class="container">
+          <div class="stats-row">
+            <div class="stat-card">
+              <div class="stat-label">Platform</div>
+              <div class="stat-value">Hosted on Whop</div>
+              <div class="stat-note">
+                Secure checkout, instant access, and membership management handled for you.
               </div>
             </div>
-          </div>
-
-          <!-- Quick stats -->
-          <div class="stats-strip">
-            <div class="stats-row">
-              <div class="stat-card">
-                <div class="stat-label">What you get</div>
-                <div class="stat-value">Live callouts + education</div>
-                <div class="stat-tag">No “signals only” gimmicks</div>
+            <div class="stat-card">
+              <div class="stat-label">What you get</div>
+              <div class="stat-value">Education first</div>
+              <div class="stat-note">
+                Live commentary, examples, and Q&amp;A designed to teach you how to think,
+                not just what to click.
               </div>
-              <div class="stat-card">
-                <div class="stat-label">Membership model</div>
-                <div class="stat-value">Flat monthly fee</div>
-                <div class="stat-tag">Full access · no per-channel upsells</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-label">Focus</div>
-                <div class="stat-value">Clarity & risk first</div>
-                <div class="stat-tag">You will see losses, not just wins</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Community</div>
+              <div class="stat-value">Active traders</div>
+              <div class="stat-note">
+                People learning, improving, and sharing ideas together — from newer traders
+                to more seasoned members.
               </div>
             </div>
           </div>
@@ -1213,40 +1133,38 @@
       <section id="how">
         <div class="container">
           <div class="section-header">
-            <div class="section-eyebrow">How Simply Trading works</div>
-            <h2 class="section-title">Built around real trading days, not screenshots</h2>
+            <div class="section-eyebrow">How Simply Trading fits into your routine</div>
+            <h2 class="section-title">Built for traders who want structure, not noise.</h2>
             <p class="section-subtitle">
-              We structure everything around the live market. From pre-market prep to post-session review,
-              you always understand the context and the risk driving each idea.
+              You get a defined process to plug into each week: prep, live market context,
+              and post-session breakdowns that actually explain the “why” behind the trades.
             </p>
           </div>
 
           <div class="how-grid">
             <div class="how-card">
-              <div class="how-step">Step 1 · Join & onboard</div>
-              <div class="how-title">Get set up in minutes</div>
-              <div class="how-body">
-                Join the Discord, introduce yourself, and walk through the quick-start guide. We help you set up chart
-                layouts, basic risk rules, and the channels you actually need.
-              </div>
+              <div class="how-step">Step 1</div>
+              <div class="how-title">Join through Whop</div>
+              <p class="how-body">
+                Choose your membership on Whop, complete checkout, and you’ll instantly
+                receive access to the Discord and all member channels.
+              </p>
             </div>
-
             <div class="how-card">
-              <div class="how-step">Step 2 · Trade with context</div>
-              <div class="how-title">Follow live callouts with a plan</div>
-              <div class="how-body">
-                Analysts share levels, thesis, invalidation, and management plans in real time. You see both winners and
-                losses, with a focus on process and probability, not hype.
-              </div>
+              <div class="how-step">Step 2</div>
+              <div class="how-title">Plug into the live sessions</div>
+              <p class="how-body">
+                Follow the daily game plan, watch how levels are used in real time, and see
+                trades broken down with risk and reasoning — not just entries and exits.
+              </p>
             </div>
-
             <div class="how-card">
-              <div class="how-step">Step 3 · Learn the “why”</div>
-              <div class="how-title">Classes, breakdowns, and replays</div>
-              <div class="how-body">
-                Live classes, recorded sessions, and strategy deep-dives explain the patterns we trade. Ask questions,
-                see annotated charts, and build a playbook you can repeat.
-              </div>
+              <div class="how-step">Step 3</div>
+              <div class="how-title">Apply the frameworks yourself</div>
+              <p class="how-body">
+                Use the education library and community feedback to refine your own plan,
+                log trades, and build a process that fits your personality and schedule.
+              </p>
             </div>
           </div>
         </div>
@@ -1258,95 +1176,71 @@
           <div class="features-layout">
             <div>
               <div class="section-header">
-                <div class="section-eyebrow">What’s inside</div>
-                <h2 class="section-title">Everything in one membership</h2>
+                <div class="section-eyebrow">Inside the community</div>
+                <h2 class="section-title">What you get when you join.</h2>
                 <p class="section-subtitle">
-                  One flat fee gives you access to live callouts, education, and support. No nickel-and-diming you for
-                  “premium” channels or secret strategies.
+                  Everything is built around helping you become a more independent trader:
+                  clarity on context, clean examples, and a room that respects risk.
                 </p>
               </div>
 
               <div class="feature-grid">
                 <div class="feature-card">
-                  <div class="feature-tag">Live trading / callouts</div>
-                  <div class="feature-title">Real-time plans, not vague alerts</div>
-                  <div class="feature-body">
-                    Trade ideas include <strong>levels, risk, and thesis</strong>. You see what we are watching, why we
-                    like the setup, and how we plan to manage it if price behaves differently.
-                  </div>
+                  <div class="feature-tag">Live market context</div>
+                  <div class="feature-title">Intraday levels &amp; scenarios</div>
+                  <p class="feature-body">
+                    Pre-market prep and intraday commentary focused on SPX, NQ, and key
+                    names. You see the levels, the plan, and how it adapts as the day
+                    unfolds.
+                  </p>
                 </div>
 
                 <div class="feature-card">
                   <div class="feature-tag">Education library</div>
-                  <div class="feature-title">On-demand lessons</div>
-                  <div class="feature-body">
-                    Structured videos, guides, and examples covering market structure, liquidity, options basics, and
-                    account risk. Learn at your own pace and revisit as needed.
-                  </div>
-                </div>
-
-                <div class="feature-card">
-                  <div class="feature-tag">Live classes</div>
-                  <div class="feature-title">Walk through setups together</div>
-                  <div class="feature-body">
-                    Regular live sessions where we chart together, walk through recent trades, and answer questions
-                    in real time. Replays are posted for members who cannot attend.
-                  </div>
-                </div>
-
-                <div class="feature-card">
-                  <div class="feature-tag">Analyst team</div>
-                  <div class="feature-title">Multiple perspectives</div>
-                  <div class="feature-body">
-                    Different analysts focus on different products and styles, so you can see how swing traders, scalpers,
-                    and intraday traders think through the same conditions.
-                  </div>
+                  <div class="feature-title">Structured lessons &amp; recaps</div>
+                  <p class="feature-body">
+                    Members-only content that walks through setups, trade management, and
+                    examples of both wins and losses — so you learn the full story.
+                  </p>
                 </div>
 
                 <div class="feature-card">
                   <div class="feature-tag">Community</div>
-                  <div class="feature-title">Supportive, no-ego environment</div>
-                  <div class="feature-body">
-                    A curated group of traders who are serious about improving. Questions are encouraged, mistakes are
-                    reviewed, and PnL flexing is not the point.
-                  </div>
+                  <div class="feature-title">Serious, supportive environment</div>
+                  <p class="feature-body">
+                    Traders who actually show up, share ideas, and respect risk. No get
+                    rich fast promises, no spam, just people working to improve.
+                  </p>
                 </div>
 
                 <div class="feature-card">
                   <div class="feature-tag">Tools</div>
-                  <div class="feature-title">Dashboards & templates</div>
-                  <div class="feature-body">
-                    Members get access to tracking templates, trade journals, and structure checklists to keep your
-                    trading consistent and data-driven.
-                  </div>
+                  <div class="feature-title">Checklists &amp; routines</div>
+                  <p class="feature-body">
+                    Practical frameworks you can copy, adapt, and build into your own
+                    daily and weekly trading routine.
+                  </p>
                 </div>
               </div>
-
-              <p class="feature-note">
-                We are not a broker, advisor, or money manager. We show you how we trade and give you tools to build your
-                own process.
-              </p>
             </div>
 
-            <aside class="feature-highlight" id="education">
-              <h3>Education-first by design</h3>
+            <aside class="feature-highlight">
+              <h3>Why Simply Trading instead of random discords?</h3>
               <p>
-                You are not here to copy someone else forever. Our goal is that over time, you rely less on live callouts
-                and more on your own rules and playbook.
+                Most trading communities blast alerts or chase the hottest ticker of the
+                week. This community is built around
+                <strong>learning how to trade</strong> — with structure, repetition, and
+                honest conversations about risk.
               </p>
               <ul>
-                <li>Strategy breakdowns with examples and common traps</li>
-                <li>Risk management frameworks you can actually follow</li>
-                <li>Account protection and sizing for different account sizes</li>
-                <li>Mindset and routine building for consistency</li>
+                <li>Education first, always. You’re here to understand the process.</li>
+                <li>Clear communication of risk and expectations for every idea.</li>
+                <li>Hosted on Whop for secure payments and simple account management.</li>
               </ul>
               <p>
-                Every new member is pointed to a simple “start here” path so you are not lost in channels or content
-                overload.
+                If you’re tired of noise, and want a focused space to sharpen your edge,
+                this is built for you.
               </p>
-              <a href="https://whop.com/c/simply-trading-b0/insta" class="btn btn-outline" style="margin-top: 0.4rem;">
-                Start with the education path
-              </a>
             </aside>
           </div>
         </div>
@@ -1355,130 +1249,148 @@
       <!-- PRICING -->
       <section id="pricing">
         <div class="container">
-          <div class="section-header">
-            <div class="section-eyebrow">Membership</div>
-            <h2 class="section-title">Flat-fee access. No hidden tiers.</h2>
-            <p class="section-subtitle">
-              One membership level. When you join, you get access to everything: live callouts, education, classes,
-              tools, and community. No surprise “VIP” rooms.
-            </p>
-          </div>
+          <div class="pricing-layout">
+            <div>
+              <div class="section-header">
+                <div class="section-eyebrow">Membership</div>
+                <h2 class="section-title">Flexible options through Whop.</h2>
+                <p class="section-subtitle">
+                  Choose the membership that fits your pace. All paid tiers include full
+                  community access, education, and live sessions while your membership is
+                  active.
+                </p>
+              </div>
 
-          <div class="pricing-card">
-            <div class="pricing-pill">All-access membership</div>
+              <div class="pricing-card">
+                <div class="pricing-pill">ST Premier</div>
+                <div class="pricing-price-row">
+                  <div class="pricing-main">$49.99</div>
+                  <div class="pricing-period">per week</div>
+                </div>
+                <div class="pricing-sub">
+                  Unlock full access to the community, live sessions, and the education
+                  library. Cancel anytime through Whop.
+                </div>
 
-            <!-- Replace this with your actual pricing -->
-            <div class="pricing-price-row">
-              <div class="pricing-main">$150</div>
-              <div class="pricing-period">per month</div>
+                <ul class="pricing-list">
+                  <li>
+                    <span class="pricing-bullet">•</span>
+                    <span>Live trading commentary and intraday market context.</span>
+                  </li>
+                  <li>
+                    <span class="pricing-bullet">•</span>
+                    <span>Full access to the education library and recorded materials.</span>
+                  </li>
+                  <li>
+                    <span class="pricing-bullet">•</span>
+                    <span>Private community channels for questions and trade reviews.</span>
+                  </li>
+                  <li>
+                    <span class="pricing-bullet">•</span>
+                    <span>Hosted and managed securely through Whop.</span>
+                  </li>
+                </ul>
+
+                <a
+                  href="https://whop.com/simply-trading-b0/simply-trading-b0/?utm_source=store_page&funnelId=store_74e2c187-fb89-4824-9cc8-9c869190f368"
+                  target="_blank"
+                  rel="noopener"
+                  class="btn btn-primary"
+                  style="width: 100%; justify-content: center; margin-bottom: 0.6rem;"
+                >
+                  Join ST Premier on Whop
+                </a>
+
+                <p class="pricing-fine">
+                  Memberships are billed and managed entirely through Whop. You can cancel
+                  from your Whop dashboard at any time; access remains until the end of
+                  your billing period.
+                </p>
+              </div>
             </div>
 
-            <div class="pricing-sub">
-              Cancel anytime. Access remains active through the end of your billing period.
-            </div>
-
-            <ul class="pricing-list">
-              <li>
-                <span class="pricing-bullet">•</span>
-                <span>Live trading / callout channels for the instruments we focus on.</span>
-              </li>
-              <li>
-                <span class="pricing-bullet">•</span>
-                <span>Education library, playbooks, and member resources.</span>
-              </li>
-              <li>
-                <span class="pricing-bullet">•</span>
-                <span>Live classes, Q&amp;A sessions, and replays.</span>
-              </li>
-              <li>
-                <span class="pricing-bullet">•</span>
-                <span>Access to community channels and support.</span>
-              </li>
-              <li>
-                <span class="pricing-bullet">•</span>
-                <span>Tools &amp; templates built by the team.</span>
-              </li>
-            </ul>
-
-            <a href="https://whop.com/simply-trading-b0/simply-trading-b0/?utm_source=store_page&funnelId=store_74e2c187-fb89-4824-9cc8-9c869190f368" class="btn btn-primary">
-              Join Simply Trading
-              <span>↗</span>
-            </a>
-
-            <p class="pricing-fine">
-              We do not manage money, place trades on your behalf, or guarantee returns. Your results depend on your own
-              decisions, risk tolerance, and discipline.
-            </p>
+            <aside class="visitor-card">
+              <strong>Visitor tier (Free)</strong>
+              <p style="margin-top: 0.35rem;">
+                Not sure if the community is right for you yet? Use the free tier on Whop
+                to get a feel for the environment first.
+              </p>
+              <ul style="padding-left: 1.1rem; margin: 0.4rem 0 0.5rem;">
+                <li>Limited access to public channels and announcements.</li>
+                <li>See how the community operates before upgrading.</li>
+              </ul>
+              <a
+                href="https://whop.com/discover/simply-trading-b0/"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-outline"
+              >
+                View all tiers on Whop
+              </a>
+            </aside>
           </div>
         </div>
       </section>
 
       <!-- COMMUNITY -->
-      <section id="community">
+      <section>
         <div class="container">
           <div class="community-grid">
             <div>
               <div class="section-header">
                 <div class="section-eyebrow">Community</div>
-                <h2 class="section-title">Trading is easier when you are not doing it alone</h2>
-                <p class="section-subtitle">
-                  Most traders quit because they try to figure everything out in isolation. Our community keeps you grounded,
-                  accountable, and focused on the right problems.
-                </p>
+                <h2 class="section-title">A room that takes trading seriously.</h2>
               </div>
-
-              <div class="community-card">
-                <div class="community-badge">Inside the server</div>
-                <p class="community-main">
-                  Channels are organized around <strong>session, product, and purpose</strong>. From pre-market prep and
-                  live callouts to post-session reviews, you always know where to go for what you need.
-                </p>
-                <div class="community-tags">
-                  <span class="community-tag">Pre-market prep</span>
-                  <span class="community-tag">Live callouts</span>
-                  <span class="community-tag">Chart breakdowns</span>
-                  <span class="community-tag">Education threads</span>
-                  <span class="community-tag">Member wins &amp; lessons</span>
-                </div>
+              <p class="community-text">
+                The tone of the community matters. You’re surrounded by people who are
+                working to improve their process, not chase lotto tickets. Ask questions,
+                share trade ideas, and get feedback without the ego.
+              </p>
+              <div class="community-tags">
+                <div class="community-tag">SPX / NQ focused</div>
+                <div class="community-tag">Respect for risk</div>
+                <div class="community-tag">Beginner friendly</div>
+                <div class="community-tag">Active discussion</div>
               </div>
             </div>
 
-            <!-- Discord-like mockup -->
-            <aside class="community-mock" aria-label="Illustrative view of community chat">
+            <aside class="community-mock">
               <div class="community-header-row">
-                <div class="community-server">Simply Trading · Live Session</div>
+                <div class="community-server">#live-trading</div>
                 <div class="community-status">
                   <span class="status-dot"></span>
-                  Session online
+                  Session in progress
                 </div>
               </div>
+
               <div class="community-messages">
                 <div class="msg">
-                  <div class="msg-label">Pre-market levels</div>
+                  <div class="msg-label">Pre-market</div>
                   <div class="msg-main">
-                    Today’s focus: <span>SPX, QQQ, TSLA</span>. Watching overnight highs and prior day VWAP for first
-                    liquidity grabs. Full plan posted in #pre-market-notes.
+                    SPX opening inside <span>balance</span> from yesterday.
+                    Watching reclaim of overnight high for continuation. No reason to rush
+                    first 15–30 minutes.
                   </div>
-                  <div class="msg-small">
-                    Goal: trade <strong>with</strong> the main move, not chop in the middle.
-                  </div>
+                  <div class="msg-small">Context first, entries second.</div>
                 </div>
+
                 <div class="msg">
-                  <div class="msg-label">Live callout · Example</div>
+                  <div class="msg-label">Intraday update</div>
                   <div class="msg-main">
-                    SPX liquidity sweep complete. Looking for calls above 5059 if buyers hold. <span>Risk: 5051</span>,
-                    first target 5075. Partial at 8–10 points.
+                    Took first trim at 1R, stop moved to breakeven. If we lose the
+                    morning low, I am out and waiting for a fresh setup — no forcing it.
                   </div>
-                  <div class="msg-small">
-                    Reminder: if we do not get confirmation, we skip. No FOMO entries.
-                  </div>
+                  <div class="msg-small">You’ll see risk and management explained in real time.</div>
                 </div>
+
                 <div class="msg">
-                  <div class="msg-label">Review &amp; lessons</div>
+                  <div class="msg-label">Member question</div>
                   <div class="msg-main">
-                    Closed runners at 5078. Great execution from the room. We will break this down in tonight’s review
-                    and talk through what made this cleaner than yesterday’s chop.
+                    “Why did we skip that break?” — because volume was thin and we were
+                    still inside the prior value area. Great question and something to
+                    note in your journal.
                   </div>
+                  <div class="msg-small">Questions are encouraged. Process over perfection.</div>
                 </div>
               </div>
             </aside>
@@ -1486,59 +1398,73 @@
         </div>
       </section>
 
-      <!-- FAQ + RISK -->
+      <!-- FAQ -->
       <section id="faq">
         <div class="container">
           <div class="faq-grid">
             <div>
               <div class="section-header">
-                <div class="section-eyebrow">Common questions</div>
-                <h2 class="section-title">What to know before you join</h2>
-                <p class="section-subtitle">
-                  We want you to have clear expectations. This is a place to learn and improve, not a shortcut to easy
-                  money.
-                </p>
+                <div class="section-eyebrow">FAQ</div>
+                <h2 class="section-title">Common questions before joining.</h2>
               </div>
 
               <div class="faq-list">
                 <div class="faq-item">
-                  <div class="faq-q">Is this financial advice?</div>
+                  <div class="faq-q">Is this alerts or education?</div>
                   <div class="faq-a">
-                    No. Nothing in the community is financial, investment, or trading advice. We show you how we think, how
-                    we trade, and the rules we use. You are responsible for your own decisions and outcomes.
+                    This is an education-focused community. You will see trade ideas and
+                    examples, but the intent is to teach you how to build and execute your
+                    own plan — not to blindly copy someone else’s.
                   </div>
                 </div>
-                <div class="faq-item">
-                  <div class="faq-q">Do you guarantee results or profits?</div>
-                  <div class="faq-a">
-                    No. Trading involves substantial risk and there is no guarantee of profit. Some members may lose money,
-                    especially while learning. You should never trade money you cannot afford to lose.
-                  </div>
-                </div>
+
                 <div class="faq-item">
                   <div class="faq-q">What skill level is this for?</div>
                   <div class="faq-a">
-                    We have members from “just starting out” to experienced traders looking to sharpen their process.
-                    Education content assumes you are willing to do the work and ask questions when something is unclear.
+                    We have members who are just getting consistent with the basics and
+                    traders with more experience who want structure and community. As long
+                    as you respect risk and want to improve, you will fit in.
                   </div>
                 </div>
+
                 <div class="faq-item">
                   <div class="faq-q">Can I cancel anytime?</div>
                   <div class="faq-a">
-                    Yes. You can cancel your membership at any time through the platform you signed up on. You will keep
-                    access until the end of your billing period.
+                    Yes. All memberships are handled through Whop. You can cancel from
+                    your Whop dashboard at any time; your access continues until the end
+                    of your paid period.
+                  </div>
+                </div>
+
+                <div class="faq-item">
+                  <div class="faq-q">Do you guarantee results or profits?</div>
+                  <div class="faq-a">
+                    No. Trading involves substantial risk and there is no guarantee of
+                    profit. Some members will do well, others may not — especially while
+                    learning. You should never trade money you cannot afford to lose.
                   </div>
                 </div>
               </div>
             </div>
 
-            <aside>
-              <p class="faq-note">
-                Still not sure if it is the right fit? Join, explore the education and live channels, and ask questions.
-                If the environment or structure is not what you need, you can cancel before the next billing cycle.
+            <aside class="faq-note">
+              <p>
+                Still not sure if it’s the right fit? Start with the free visitor tier on
+                Whop, see how the room feels, and upgrade only if the environment and
+                structure match what you are looking for.
               </p>
-              <a href="https://whop.com/simply-trading-b0/visitor-ea/?utm_source=store_page&funnelId=store_74e2c187-fb89-4824-9cc8-9c869190f368" class="btn btn-primary" style="margin-top: 0.8rem;">
-                Enter the community
+              <p style="margin-top: 0.7rem;">
+                Have more questions? You can reach out through Whop before joining, and
+                we’ll point you in the right direction.
+              </p>
+              <a
+                href="https://whop.com/discover/simply-trading-b0/"
+                target="_blank"
+                rel="noopener"
+                class="btn btn-outline"
+                style="margin-top: 0.7rem;"
+              >
+                Visit Simply Trading on Whop
               </a>
             </aside>
           </div>
@@ -1549,14 +1475,15 @@
       <section>
         <div class="container">
           <div class="disclaimer">
-            <div class="disclaimer-title">Risk disclaimer</div>
+            <div class="disclaimer-title">Risk disclosure</div>
             <div class="disclaimer-body">
-              Trading stocks, options, futures, currencies, or any leveraged products involves significant risk and may not
-              be suitable for every investor. You can lose some or all of your initial investment, and you should not trade
-              with capital you cannot afford to lose. All information provided by Simply Trading, its community, and its
-              team is for educational and informational purposes only and should not be interpreted as financial, investment,
-              tax, or legal advice. Past performance is not indicative of future results. You are solely responsible for
-              evaluating your own financial circumstances, risk tolerance, and decisions before placing any trade.
+              Trading stocks, options, futures, and other financial instruments involves
+              significant risk and is not suitable for every investor. You can lose some
+              or all of your capital. Nothing provided by Simply Trading — in Discord,
+              live sessions, recorded content, or elsewhere — is financial, investment, or
+              tax advice. All information is for educational purposes only. Past
+              performance does not guarantee future results. You are solely responsible
+              for your own trading decisions and risk management.
             </div>
           </div>
         </div>
@@ -1568,17 +1495,18 @@
       <div class="container">
         <div class="footer-inner">
           <div>
-            © <span id="year"></span> Simply Trading. All rights reserved.
+            <div>&copy; <span id="year"></span> Simply Trading. All rights reserved.</div>
             <div class="footer-small">
-              Educational community only. No financial, investment, or tax advice is provided.
+              Educational community only. No financial, investment, or tax advice is
+              provided.
             </div>
           </div>
 
           <div class="footer-links">
-            <a href="mailto:bentelle.st@gmail.com">Contact</a>
-            <a href="https://whop.com/c/simply-trading-b0/insta">Discord</a>
-            <a href="https://x.com/SimplyTradingCo">X (Twitter)</a>
-            <a href="https://www.instagram.com/simplytrading.co/">Instagram</a>
+            <!-- Replace these with real links when ready -->
+            <a href="mailto:YOUR_EMAIL_HERE">Contact</a>
+            <a href="YOUR_X_PROFILE_LINK" target="_blank" rel="noopener">X (Twitter)</a>
+            <a href="YOUR_INSTAGRAM_LINK" target="_blank" rel="noopener">Instagram</a>
           </div>
         </div>
       </div>
@@ -1586,7 +1514,7 @@
   </div>
 
   <script>
-    // Simple mobile nav toggle
+    // Mobile nav toggle
     const navToggle = document.getElementById("navToggle");
     const navInner = document.getElementById("navInner");
 
@@ -1597,7 +1525,8 @@
     }
 
     // Dynamic year
-    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
   </script>
 </body>
 </html>
