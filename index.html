@@ -3,30 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <title>Stock Option Trading Education | Simply Trading</title>
-  <meta name="description" content="Simply Trading provides advanced stock option trading education, structured analysis, and a serious community. Learn how to trade options effectively with real context, not signals." />
+  <meta name="description" content="Simply Trading delivers advanced stock option trading education, structured analysis, and a supportive trader community. Learn how to trade with real context — no hype." />
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Open Graph for Social Previews -->
+  <!-- Open Graph for link previews -->
   <meta property="og:title" content="Stock Option Trading Education | Simply Trading">
-  <meta property="og:description" content="Advanced stock option trading education, structured analysis, and community support. Join Simply Trading on Whop to learn options trading the right way.">
-  <meta property="og:type" content="website">
+  <meta property="og:description" content="Structured options trading education, live context, and community support. Join Simply Trading on Whop to learn the right way.">
   <meta property="og:url" content="https://simplytrading.info">
   <meta property="og:image" content="https://simplytrading.info/images/st-promo-mobile.jpg">
   <meta name="twitter:card" content="summary_large_image">
 
-  <!-- Fonts (Modern Sans) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* ================= GLOBAL VARIABLES ================= */
+    /* ================= GLOBAL ================= */
     :root {
       --bg-main: #0f1318;
       --bg-alt: #14171b;
       --bg-section-soft: rgba(255,255,255,0.04);
-      --accent: #AE742A;
-      --accent-soft: #FFDC7E;
       --text-main: #e5e7eb;
       --text-soft: #9ca3af;
       --border-soft: rgba(148,163,184,0.24);
@@ -64,7 +61,7 @@
       transition: 0.18s ease;
     }
     .btn-primary {
-      background: var(--accent);
+      background: #AE742A;
       color: #fefce8;
       box-shadow: 0 0 18px rgba(255,220,126,0.32);
     }
@@ -74,20 +71,19 @@
       color: var(--text-soft);
     }
     .btn-outline:hover {
-      border-color: var(--accent-soft);
+      border-color: #fff;
       color: #fff;
     }
 
-    /* ========== ANIMATED BACKGROUND (MODERATE) ========== */
-    #ambientBG {
+    /* ------------- Ambient Background Canvas ------------- */
+    #ambientCanvas {
       position: fixed;
       inset: 0;
       z-index: -10;
-      background: #0f1318;
       pointer-events: none;
     }
 
-    /* ========== STICKY NAVIGATION ========== */
+    /* ========== NAVIGATION ========== */
     header {
       position: sticky;
       top: 0;
@@ -101,8 +97,13 @@
       justify-content: space-between;
       align-items: center;
     }
-    .brand { display: flex; align-items: center; gap: 0.6rem; }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
     .brand img { height: 48px; width: auto; }
+
     nav a {
       margin: 0 1rem;
       font-size: 0.95rem;
@@ -113,18 +114,16 @@
     nav a:hover { color: #fff; }
     nav a::after {
       content: "";
-      position: absolute; bottom: -3px; left: 0;
-      width: 100%; height: 2px;
-      background: transparent; transition: 0.18s ease;
+      position:absolute; bottom:-3px; left:0; width:100%; height:2px;
+      background: transparent;
+      transition: 0.18s ease;
     }
-    nav a:hover::after { background: var(--accent-soft); }
+    nav a:hover::after { background: #fff; }
 
     /* ========== HERO ========== */
     .hero {
-      position: relative;
-      padding: 5rem 0 4rem;
+      padding: 4rem 0 3rem;
       text-align: center;
-      background: none;
     }
     .hero h1 {
       font-size: clamp(2.8rem, 5vw, 3.8rem);
@@ -132,335 +131,302 @@
     }
     .hero p {
       max-width: 36rem;
-      margin: 0 auto 1.8rem;
+      margin-left: auto; margin-right: auto;
     }
-    .hero .hero-ctas {
-      display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;
-    }
-
-    /* ========== SECTION STYLES ========== */
+        /* ========== SECTIONS ========== */
     section { padding: 3.5rem 0; }
     section:nth-of-type(odd) { background: var(--bg-section-soft); }
     section:nth-of-type(even) { background: var(--bg-alt); }
 
-    /* ========== VISUAL GRID ========== */
-    .visual-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      align-items: center;
-      margin-top: 1rem;
-    }
-    .visual-tag {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      background: var(--bg-main);
-      color: var(--accent-soft);
-      display: inline-block;
-      padding: 0.45rem 0.9rem;
-      border-radius: 999px;
-      margin-bottom: 0.6rem;
-    }
-    .visual-media .frame {
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid var(--border-soft);
-    }
-    @media (max-width: 900px) { .visual-grid { grid-template-columns: 1fr; } }
-
-    /* ========== TESTIMONIAL CAROUSEL ========== */
-    .testimonials { text-align: center; max-width: 900px; margin: 2rem auto; }
-    .testimonial-slide {
-      opacity: 0; transition: opacity 0.6s ease;
-      padding: 0 1.6rem; display: none;
-    }
-    .testimonial-slide.active { opacity: 1; display: block; }
-    .testimonial-quote {
-      font-size: 1.03rem; font-style: italic; color: var(--text-main); margin-bottom: 0.8rem;
-    }
-    .testimonial-author { font-weight: 600; color: var(--accent); }
-
-    /* ========== PRICING TOGGLE ========== */
-    .pricing-toggle {
-      display: flex; gap: 0.6rem; justify-content:center;
-      margin-bottom: 1.7rem;
-    }
-    .pricing-toggle button {
-      padding: 0.55rem 1.15rem;
-      background: var(--bg-alt); border: 1px solid var(--border-soft);
-      border-radius: var(--radius-lg); color: var(--text-soft); cursor: pointer;
-    }
-    .pricing-toggle button.active {
-      background: var(--accent-soft); color: #111;
-      border-color: var(--accent);
-    }
-
-    /* ========== EMAIL POPUP ========== */
-    .popup-overlay {
-      position: fixed; inset: 0; background: rgba(0,0,0,0.78);
-      display: none; align-items: center; justify-content: center;
-      z-index: 200;
-    }
-    .popup-box {
-      background: var(--bg-alt); padding: 2rem 2.4rem;
-      border-radius: var(--radius-lg); max-width: 380px; text-align:center;
-      box-shadow: var(--shadow-soft);
-    }
-    .popup-close { position:absolute; top:8px; right:10px; font-size:1.3rem; cursor:pointer; color:var(--text-soft); }
-
-    /* ========== FAQ ================= */
-    .faq-grid { display: grid; gap: 1rem; }
-    .faq-item {
-      background: var(--bg-main); padding: 1rem 1.4rem;
-      border-radius: var(--radius-lg); border: 1px solid var(--border-soft);
-    }
-    .faq-q { font-weight: 600; }
-    .faq-a { color: var(--text-soft); margin-top:0.3rem; }
-
-    /* ========== FOOTER ================= */
-    footer {
-      text-align: center; padding: 2.5rem 0;
-      border-top: 1px solid var(--border-soft); font-size:0.85rem; color:var(--text-soft);
-    }
-    footer a:hover { color: var(--accent-soft); }
   </style>
-    <!-- ========== APPROACH / PHILOSOPHY ========== -->
-  <section id="approach">
-    <div class="container">
-      <div class="visual-grid">
-        <div>
-          <div class="visual-tag">Our Philosophy</div>
-          <h2>Our Approach to Professional Trading Education</h2>
-          <p>We emphasize understanding over signals. Every concept you encounter in the community is framed with context, risk management, and repeatable frameworks.</p>
-          <ul style="margin-top:1rem;list-style:disc;padding-left:1.4rem;color:var(--text-soft);">
-            <li>Pre-market preparation and setups that make sense</li>
-            <li>Live analysis with explanation — not just entry/exit alerts</li>
-            <li>Ongoing discussion about how markets behave in real time</li>
-          </ul>
-        </div>
-        <div class="visual-media">
-          <div class="frame">
-            <img src="images/trader-multimonitor.jpg" alt="Trader watching multiple trading monitors">
-          </div>
-        </div>
+</head>
+
+<body>
+
+<canvas id="ambientCanvas"></canvas>
+
+<!-- ========== NAVIGATION ========== -->
+<header>
+  <div class="container nav-inner">
+    <a href="#top" class="brand">
+      <img src="assets/simply-trading-logo.jpg?v=2" alt="Simply Trading logo">
+    </a>
+    <nav>
+      <a href="#how">How it works</a>
+      <a href="#features">What you get</a>
+      <a href="#pricing">Membership</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="https://whop.com/simply-trading-b0/simply-trading-b0/?utm_source=store_page&funnelId=store_74e2c187-fb89-4824-9cc8-9c869190f368" class="btn btn-primary">Join on Whop</a>
+  </div>
+</header>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="top">
+  <div class="container">
+    <h1>Learn to trade with a serious, structured community.</h1>
+    <p>Your path to consistent options & index trading — no hype, real education and live context.</p>
+  </div>
+</section>
+
+<!-- ========== STATS ========== -->
+<section>
+  <div class="container">
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-label">Platform</div>
+        <div class="stat-value">Hosted on Whop</div>
       </div>
-    </div>
-  </section>
-
-  <!-- ========== BENEFITS ========== -->
-  <section id="benefits">
-    <div class="container">
-      <div class="visual-grid">
-        <div class="visual-media">
-          <div class="frame">
-            <img src="images/trader-laptop.jpg" alt="Trader using laptop and large monitor for charts">
-          </div>
-        </div>
-        <div>
-          <div class="visual-tag">What You Get</div>
-          <h2>Benefits of Joining Simply Trading</h2>
-          <ul style="margin-top:1rem;list-style:disc;padding-left:1.4rem;color:var(--text-soft);">
-            <li>Education that teaches how markets work — not just signals</li>
-            <li>Live context — see trades explained as they unfold</li>
-            <li>Clear, repeatable trading frameworks you can adapt</li>
-            <li>Supportive community for questions and feedback</li>
-          </ul>
-        </div>
+      <div class="stat-card">
+        <div class="stat-label">What you get</div>
+        <div class="stat-value">Education & context</div>
       </div>
-    </div>
-  </section>
-
-  <!-- ========== TESTIMONIALS ========== -->
-  <section id="testimonials">
-    <div class="container">
-      <h2 style="text-align:center; margin-bottom:1rem;">What Traders Are Saying</h2>
-      <div class="testimonials">
-
-        <div class="testimonial-slide active">
-          <div class="testimonial-quote">“Good analysts, good friends.”</div>
-          <div class="testimonial-author">— gaba</div>
-        </div>
-
-        <div class="testimonial-slide">
-          <div class="testimonial-quote">“An absolutely amazing group of analysts and mentors who truly want to see you succeed.”</div>
-          <div class="testimonial-author">— Whitney Harrison</div>
-        </div>
-
-        <div class="testimonial-slide">
-          <div class="testimonial-quote">“These are some legit mentors, willing to help anytime you need it.”</div>
-          <div class="testimonial-author">— Jake</div>
-        </div>
-
-        <div class="testimonial-slide">
-          <div class="testimonial-quote">“A true community oriented toward growth and success through education and guidance.”</div>
-          <div class="testimonial-author">— andytell</div>
-        </div>
-
+      <div class="stat-card">
+        <div class="stat-label">Community</div>
+        <div class="stat-value">Active traders</div>
       </div>
-    </div>
-  </section>
-
-  <!-- ========== PRICING SECTION ========== -->
-  <section id="membership">
-    <div class="container">
-      <h2 style="text-align:center; margin-bottom:0.7rem;">Membership & Pricing Options</h2>
-
-      <div class="pricing-toggle">
-        <button class="active" onclick="setPricing('weekly')">Weekly</button>
-        <button onclick="setPricing('6month')">6-Month</button>
-        <button onclick="setPricing('annual')">Annual (Best Value)</button>
-      </div>
-
-      <div class="visual-grid" style="text-align:center; margin-top:1.7rem;">
-
-        <!-- Visitor Free Tier -->
-        <div class="frame" style="padding:1.5rem;">
-          <h3>Visitor</h3>
-          <p>Free — Preview access to the environment & community</p>
-          <p style="font-size:1.05rem; margin-top:0.4rem;"><strong>Free</strong></p>
-          <a href="https://whop.com/discover/simply-trading-b0/" target="_blank" class="btn btn-outline" style="margin-top:0.7rem;">View Free Tier</a>
-        </div>
-
-        <!-- ST Premier Paid Tier -->
-        <div class="frame" style="padding:1.5rem;">
-          <h3>ST Premier</h3>
-          <p id="pricingValue" style="font-size:1.5rem; font-weight:600; margin-top:0.4rem;">$49.99 / week</p>
-          <p style="margin-top:0.4rem;">Full community access with structured education and live sessions.</p>
-          <a href="https://whop.com/simply-trading-b0/simply-trading-b0/?utm_source=store_page&funnelId=store_74e2c187-fb89-4824-9cc8-9c869190f368" target="_blank" class="btn btn-primary" style="margin-top:0.8rem;">Join ST Premier</a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== FAQ ========== -->
-  <section id="faq">
-    <div class="container">
-      <h2 style="text-align:center; margin-bottom:0.8rem;">Frequently Asked Questions</h2>
-      <div class="faq-grid">
-
-        <div class="faq-item">
-          <div class="faq-q">Is this alerts or education?</div>
-          <div class="faq-a">This is education focused. You will see examples, but the goal is to teach you how to build and execute your own trading framework.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">What skill level is this for?</div>
-          <div class="faq-a">Members range from beginners to experienced traders — the key is a willingness to learn and grow.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">Can I cancel anytime?</div>
-          <div class="faq-a">Yes. Memberships are managed through Whop; you can cancel from your Whop dashboard and access remains until the end of your current period.</div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-q">Do you guarantee profits?</div>
-          <div class="faq-a">No. Trading involves risk. Nothing here is financial advice, and there are no guarantees of profits.</div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== EMAIL POPUP ========== -->
-  <div class="popup-overlay" id="emailPopup">
-    <div class="popup-box">
-      <div class="popup-close" onclick="closePopup()">×</div>
-      <h3>Stay informed with Simply Trading updates.</h3>
-      <p>Enter your email to receive news, tips, and updates:</p>
-      <input type="email" id="popupEmail" placeholder="Your email address" style="width:100%; padding:0.7rem; border-radius:8px; border:1px solid var(--border-soft); margin-bottom:0.8rem;">
-      <button class="btn btn-primary" onclick="submitEmail()">Submit</button>
     </div>
   </div>
+</section>
 
-  <!-- ========== FOOTER ========== -->
-  <footer>
-    <div class="container">
-      <div>&copy; <span id="year"></span> Simply Trading. All rights reserved.</div>
-      <div style="margin-top:0.5rem;">
-        <a href="mailto:bentelle.st@gmail.com">Contact</a> •
-        <a href="https://x.com/SimplyTradingCo" target="_blank">X</a> •
-        <a href="https://www.instagram.com/simplytrading.co/" target="_blank">Instagram</a>
+<!-- ========== HOW IT WORKS ========== -->
+<section id="how">
+  <div class="container">
+    <h2>How Simply Trading fits into your routine</h2>
+    <p>Built for traders who want structure, not noise.</p>
+    <div class="how-grid">
+      <div>
+        <div class="how-step">Step 1</div>
+        <div class="how-title">Join through Whop</div>
+        <p>Complete checkout and get instant access to the training and community.</p>
+      </div>
+      <div>
+        <div class="how-step">Step 2</div>
+        <div class="how-title">Plug into live sessions</div>
+        <p>Follow daily prep, live context, and trade breaks downs.</p>
+      </div>
+      <div>
+        <div class="how-step">Step 3</div>
+        <div class="how-title">Apply the framework</div>
+        <p>Use the education and feedback to refine your own trading routines.</p>
       </div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <!-- ========== JAVASCRIPT ========== -->
-  <script>
-    // Pricing Toggle
-    function setPricing(option) {
-      const priceEl = document.getElementById("pricingValue");
-      document.querySelectorAll('.pricing-toggle button').forEach(btn => btn.classList.remove('active'));
-      if (option === 'weekly') {
-        priceEl.textContent = "$49.99 / week";
-        document.querySelector('[onclick="setPricing(\'weekly\')"]').classList.add('active');
-      } else if (option === '6month') {
-        priceEl.textContent = "$600 / 6 months";
-        document.querySelector('[onclick="setPricing(\'6month\')"]').classList.add('active');
-      } else if (option === 'annual') {
-        priceEl.textContent = "$1,200 / year (Best Value)";
-        document.querySelector('[onclick="setPricing(\'annual\')"]').classList.add('active');
+<!-- ========== FEATURES ========== -->
+<section id="features">
+  <div class="container">
+    <h2>What you get when you join.</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-title">Live market context</div>
+        <p>Focus on real-time levels and setups with explanation.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-title">Structured lessons</div>
+        <p>A library of lessons and recordings to build your foundation.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-title">Supportive community</div>
+        <p>Serious traders sharing ideas and feedback.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-title">Practical frameworks</div>
+        <p>Checklists and routines built for real trading environments.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PRICING ========== -->
+<section id="pricing">
+  <div class="container">
+    <h2>Membership & Pricing Options</h2>
+    <div class="pricing-toggle">
+      <button class="active" onclick="setPricing('weekly')">Weekly</button>
+      <button onclick="setPricing('6month')">6-Month</button>
+      <button onclick="setPricing('annual')">Annual (Best Value)</button>
+    </div>
+    <div class="pricing-layout">
+      <div class="pricing-card">
+        <div class="pricing-pill">ST Premier</div>
+        <div class="pricing-price-row">
+          <div class="pricing-main" id="pricingValue">$49.99</div>
+          <div class="pricing-period">/ week</div>
+        </div>
+        <ul class="pricing-list">
+          <li>Live trading commentary & context</li>
+          <li>Full education library</li>
+          <li>Private community support</li>
+        </ul>
+        <a href="https://whop.com/simply-trading-b0/simply-trading-b0/?utm_source=store_page&funnelId=store_74e2c187-fb89-4824-9cc8-9c869190f368" class="btn btn-primary">Join ST Premier</a>
+      </div>
+
+      <div class="visitor-card">
+        <strong>Visitor (Free)</strong>
+        <p>Preview the community before upgrading.</p>
+        <a href="https://whop.com/discover/simply-trading-b0/" class="btn btn-outline">View Free Tier</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TESTIMONIALS ========== -->
+<section>
+  <div class="container">
+    <h2>Testimonials</h2>
+    <div class="testimonials">
+      <div class="testimonial-slide active">
+        <p>"Good analysts, good friends." — gaba</p>
+      </div>
+      <div class="testimonial-slide">
+        <p>"An absolutely amazing group of analysts and mentors who truly want to see you succeed." — Whitney Harrison</p>
+      </div>
+      <div class="testimonial-slide">
+        <p>"These are some legit mentors, willing to help anytime you need it." — Jake</p>
+      </div>
+      <div class="testimonial-slide">
+        <p>"A true community oriented toward growth and success through education and guidance." — andytell</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== COMMUNITY ========== -->
+<section>
+  <div class="container community-grid">
+    <div>
+      <h2>A room that takes trading seriously.</h2>
+      <p>The tone of the community matters. You’re surrounded by people who are working to improve their process, not chase lotto tickets.</p>
+    </div>
+    <div>
+      <img src="images/trader-multimonitor.jpg" alt="Community mockup">
+    </div>
+  </div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section id="faq">
+  <div class="container">
+    <h2>Common questions before joining.</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h3>Is this alerts or education?</h3>
+        <p>This is an educational community focused on helping you build your own edge.</p>
+      </div>
+      <div class="faq-item">
+        <h3>What skill level is this for?</h3>
+        <p>All levels welcome — as long as you respect risk and want to improve.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I cancel anytime?</h3>
+        <p>Yes — memberships are managed through Whop and can be canceled there.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== EMAIL POPUP ========== -->
+<div class="popup-overlay" id="emailPopup">
+  <div class="popup-box">
+    <span class="popup-close" onclick="closePopup()">×</span>
+    <h3>Stay informed with Simply Trading updates.</h3>
+    <input type="email" id="popupEmail" placeholder="Your email" />
+    <button class="btn btn-primary" onclick="submitEmail()">Submit</button>
+  </div>
+</div>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="container">
+    <p>&copy; <span id="year"></span> Simply Trading. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // Pricing Toggle Logic
+  function setPricing(option) {
+    const priceEl = document.getElementById("pricingValue");
+    document.querySelectorAll('.pricing-toggle button').forEach(btn => btn.classList.remove('active'));
+    if (option === 'weekly') {
+      priceEl.textContent = "$49.99";
+      document.querySelector('[onclick="setPricing(\'weekly\')"]').classList.add('active');
+    } else if (option === '6month') {
+      priceEl.textContent = "$600";
+      document.querySelector('[onclick="setPricing(\'6month\')"]').classList.add('active');
+    } else if (option === 'annual') {
+      priceEl.textContent = "$1,200";
+      document.querySelector('[onclick="setPricing(\'annual\')"]').classList.add('active');
+    }
+  }
+
+  // Testimonial Carousel
+  let ti = 0;
+  const slides = document.querySelectorAll('.testimonial-slide');
+  function rotateTestimonials() {
+    slides.forEach(s => s.classList.remove('active'));
+    ti = (ti + 1) % slides.length;
+    slides[ti].classList.add('active');
+  }
+  setInterval(rotateTestimonials, 5000);
+
+  // Email Popup (70% scroll, one time)
+  let shownPopup = false;
+  window.addEventListener('scroll', () => {
+    if (!shownPopup && window.scrollY > document.body.scrollHeight * 0.7) {
+      document.getElementById('emailPopup').style.display = 'flex';
+      shownPopup = true;
+    }
+  });
+  function closePopup() {
+    document.getElementById('emailPopup').style.display = 'none';
+  }
+  function submitEmail() {
+    const email = document.getElementById('popupEmail').value;
+    if (email) {
+      window.location.href = `mailto:bentelle.st@gmail.com?subject=New subscriber&body=${email}`;
+      closePopup();
+    }
+  }
+
+  // Dynamic year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Ambient Background Animation (neutral noise)
+  const canvas = document.getElementById('ambientCanvas');
+::contentReference[oaicite:0]{index=0}
+  // Ambient Background Animation (neutral noise)
+  const canvas = document.getElementById('ambientCanvas');
+  const ctx = canvas.getContext('2d');
+  let w, h;
+
+  function resizeCanvas() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  function drawNoise() {
+    const imageData = ctx.createImageData(w, h);
+    const buffer = new Uint32Array(imageData.data.buffer);
+    for (let i = 0; i < buffer.length; i++) {
+      if (Math.random() < 0.04) {
+        buffer[i] = (255 << 24) | (255 << 16) | (255 << 8) | (255);
       }
     }
+    ctx.putImageData(imageData, 0, 0);
+  }
 
-    // Testimonial Carousel
-    let testimonialIndex = 0;
-    const slides = document.querySelectorAll('.testimonial-slide');
-    function rotateTestimonials() {
-      slides.forEach(s => s.classList.remove('active'));
-      testimonialIndex = (testimonialIndex + 1) % slides.length;
-      slides[testimonialIndex].classList.add('active');
-    }
-    setInterval(rotateTestimonials, 5000);
-
-    // Scroll-triggered Email Popup
-    let popupShown = false;
-    window.addEventListener('scroll', function() {
-      if (!popupShown && window.scrollY > document.body.scrollHeight / 3) {
-        document.getElementById('emailPopup').style.display = 'flex';
-        popupShown = true;
-      }
-    });
-
-    function closePopup() { document.getElementById('emailPopup').style.display = 'none'; }
-
-    function submitEmail() {
-      const email = document.getElementById('popupEmail').value;
-      if (email) {
-        window.location.href = `mailto:bentelle.st@gmail.com?subject=New subscriber&body=${email}`;
-        closePopup();
-      }
-    }
-
-    // Dynamic Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    /* Ambient gradient animation */
-    const ambientBG = document.createElement('canvas');
-    ambientBG.id = "ambientBG";
-    document.body.prepend(ambientBG);
-    const ctx = ambientBG.getContext('2d');
-    let w, h, gradientShift = 0;
-    function resizeCanvas() {
-      w = ambientBG.width = window.innerWidth;
-      h = ambientBG.height = window.innerHeight;
-    }
-    window.onresize = resizeCanvas;
-    resizeCanvas();
-    function animateBG() {
-      gradientShift += 0.22;
-      const grad = ctx.createLinearGradient(0,0,w,h);
-      grad.addColorStop(0, `rgba(174,116,42,0.06)`);
-      grad.addColorStop(0.5, `rgba(97,146,78,0.05)`);
-      grad.addColorStop(1, `rgba(174,116,42,0.06)`);
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, w, h);
-      requestAnimationFrame(animateBG);
-    }
-    animateBG();
-  </script>
+  function animateNoise() {
+    ctx.fillStyle = "rgba(0, 0, 0, 0.12)";
+    ctx.fillRect(0, 0, w, h);
+    drawNoise();
+    requestAnimationFrame(animateNoise);
+  }
+  animateNoise();
+</script>
 
 </body>
 </html>
