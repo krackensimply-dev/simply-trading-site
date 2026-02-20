@@ -32,17 +32,20 @@
       box-sizing: border-box;
     }
 
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter",
-        sans-serif;
-      background:
-        radial-gradient(circle at 0 0, rgba(255, 220, 126, 0.06) 0, transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(97, 146, 78, 0.18) 0, transparent 55%),
-        var(--bg);
-      color: var(--text);
-      -webkit-font-smoothing: antialiased;
-    }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+
+  background:
+    /* Subtle dark geometric pattern */
+    url('https://www.transparenttextures.com/patterns/dark-denim.png'),
+    radial-gradient(circle at top left, rgba(97,146,78,0.10), transparent 50%),
+    radial-gradient(circle at bottom right, rgba(174,116,42,0.12), transparent 55%),
+    #0a0a0c;
+
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
 
     a {
       color: inherit;
