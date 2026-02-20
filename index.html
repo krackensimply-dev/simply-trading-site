@@ -96,20 +96,22 @@
     }
 
     .brand-logo {
-      width: 40px;
-      height: 40px;
-      border-radius: 999px;
-      background: #0b0f11;
-      border: 1px solid rgba(255, 220, 126, 0.6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: "Space Grotesk", system-ui, sans-serif;
-      font-weight: 700;
-      font-size: 1.1rem;
-      letter-spacing: 0.06em;
-      color: var(--accent-soft);
-    }
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: #0b0f11;
+  border: 1px solid rgba(255, 220, 126, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.brand-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
     .brand-text {
       display: flex;
@@ -966,8 +968,8 @@
         <div class="nav-inner" id="navInner">
           <a href="#top" class="brand">
             <div class="brand-logo">
-              <!-- Later: swap this for your SVG -->
-              <span>ST</span>
+  <img src="assets/simply-trading-logo.jpg" alt="Simply Trading logo">
+</div>
             </div>
             <div class="brand-text">
               <span class="brand-name">Simply Trading</span>
