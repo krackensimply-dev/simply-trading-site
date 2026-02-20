@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simply Trading | Learn the Markets. Trade with a Team.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Simply Trading is a flat-fee trading community with live callouts, education, and support. Learn proven strategies. No financial advice."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --bg: #050813;
+      --bg-soft: #0b1020;
+      --bg-softer: #11182a;
+      --primary: #3b82f6;
+      --primary-soft: rgba(59, 130, 246, 0.12);
+      --accent: #22c55e;
+      --accent-soft: rgba(34, 197, 94, 0.12);
+      --border-subtle: rgba(148, 163, 184, 0.18);
+      --text: #e5e7eb;
+      --text-soft: #9ca3af;
+      --danger: #f97373;
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.85);
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 40%, #000 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      min-height: 100vh;
+    }
+
+    /* Layout */
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Nav */
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.96), rgba(2, 6, 23, 0.85), transparent);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 0;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #60a5fa, #1e40af 52%, #020617 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.45), 0 10px 20px rgba(15, 23, 42, 0.75);
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .brand-subtitle {
+      font-size: 0.7rem;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 0.15rem 0;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      inset-inline: 0;
+      bottom: -0.25rem;
+      height: 1px;
+      border-radius: 999px;
+      background: linear-gradient(to right, transparent, var(--primary), transparent);
+      opacity: 0;
+      transform: scaleX(0.4);
+      transform-origin: center;
+      transition: opacity 0.16s ease, transform 0.16s ease;
+    }
+
+    .nav-links a:hover::after {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .badge-flat {
+      font-size: 0.7rem;
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      color: var(--accent);
+      background: radial-gradient(circle at 0 0, rgba(34, 197, 94, 0.18), transparent);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      white-space: nowrap;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.55rem 1.25rem;
+      border: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, opacity 0.12s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(to right, #2563eb, #4f46e5);
+      color: #eff6ff;
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.45);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.95);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-soft);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--text);
+      background: rgba(15, 23, 42, 0.8);
+    }
+
+    .nav-toggle {
+      display: none;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+      padding: 0.35rem 0.65rem;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      cursor: pointer;
+    }
+
+    /* Hero */
+
+    .hero {
+      padding: 3.5rem 0 3rem;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.95fr);
+      gap: 2.75rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      margin-bottom: 1.1rem;
+    }
+
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.18);
+    }
+
+    .hero-title {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: clamp(2.2rem, 3.3vw, 2.8rem);
+      line-height: 1.08;
+      margin: 0 0 1rem;
+    }
+
+    .hero-title span.highlight {
+      background: linear-gradient(to right, #60a5fa, #22c55e);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--text-soft);
+      max-width: 31rem;
+      line-height: 1.6;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-subtitle strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .hero-note span {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .hero-disclaimer {
+      font-size: 0.7rem;
+      color: var(--text-soft);
+      max-width: 30rem;
+      line-height: 1.5;
+      opacity: 0.85;
+    }
+
+    /* Hero "dashboard" card */
+
+    .hero-card {
+      position: relative;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 52%, #000 100%);
+      border-radius: var(--radius-xl);
+      padding: 1.4rem 1.4rem 1.2rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      background: conic-gradient(from 210deg, rgba(59, 130, 246, 0.28), transparent, rgba(34, 197, 94, 0.3), transparent);
+      mix-blend-mode: soft-light;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.1rem;
+    }
+
+    .hc-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+    }
+
+    .hc-pill {
+      font-size: 0.7rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .hc-pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.18);
+    }
+
+    .hc-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .hc-card {
+      background: rgba(15, 23, 42, 0.85);
+      border-radius: 16px;
+      padding: 0.65rem 0.75rem;
+      border: 1px solid rgba(148, 163, 184, 0.32);
+    }
+
+    .hc-label {
+      font-size: 0.7rem;
+      color: var(--text-soft);
+      margin-bottom: 0.2rem;
+    }
+
+    .hc-main {
+      display: flex;
+      align-items: baseline;
+      gap: 0.25rem;
+    }
+
+    .hc-value {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .hc-chip {
+      font-size: 0.7rem;
+      padding: 0.05rem 0.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(34, 197, 94, 0.5);
+      color: var(--accent);
+      background: rgba(22, 163, 74, 0.18);
+    }
+
+    .hc-chip.red {
+      border-color: rgba(248, 113, 113, 0.6);
+      color: #fecaca;
+      background: rgba(127, 29, 29, 0.3);
+    }
+
+    .hc-footnote {
+      font-size: 0.65rem;
+      color: var(--text-soft);
+      opacity: 0.9;
+    }
+
+    .hc-footnote span {
+      color: #e5e7eb;
+    }
+
+    /* Stats strip */
+
+    .stats-strip {
+      padding: 0.6rem 0 2.3rem;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .stat-card {
+      background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.18), rgba(15, 23, 42, 0.9));
+      border-radius: var(--radius-lg);
+      padding: 0.8rem 0.9rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.35rem;
+    }
+
+    .stat-value {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+
+    .stat-tag {
+      font-size: 0.7rem;
+      color: var(--accent);
+      margin-top: 0.2rem;
+    }
+
+    /* Sections */
+
+    section {
+      padding: 3rem 0;
+    }
+
+    .section-header {
+      margin-bottom: 1.8rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-soft);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 1.5rem;
+      margin: 0 0 0.4rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      max-width: 32rem;
+      line-height: 1.6;
+    }
+
+    /* How it works */
+
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+
+    .how-card {
+      background: var(--bg-soft);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .how-step {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+      margin-bottom: 0.35rem;
+    }
+
+    .how-title {
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .how-body {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
+    /* Features */
+
+    .features-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.1rem;
+    }
+
+    .feature-card {
+      background: var(--bg-soft);
+      border-radius: var(--radius-lg);
+      padding: 0.9rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .feature-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-soft);
+      margin-bottom: 0.2rem;
+    }
+
+    .feature-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .feature-body {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
+    .feature-body strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .feature-note {
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      margin-top: 0.5rem;
+    }
+
+    .feature-highlight {
+      background: radial-gradient(circle at top, rgba(37, 99, 235, 0.28), rgba(15, 23, 42, 0.95));
+      border-radius: var(--radius-xl);
+      padding: 1rem 1rem 1.1rem;
+      border: 1px solid rgba(59, 130, 246, 0.5);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.9);
+    }
+
+    .feature-highlight h3 {
+      margin: 0 0 0.45rem;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .feature-highlight p {
+      margin: 0 0 0.4rem;
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
+    .feature-highlight ul {
+      margin: 0.4rem 0 0.6rem;
+      padding-left: 1.1rem;
+      font-size: 0.82rem;
+      color: var(--text-soft);
+    }
+
+    .feature-highlight li + li {
+      margin-top: 0.1rem;
+    }
+
+    /* Pricing */
+
+    .pricing-card {
+      background: radial-gradient(circle at top, rgba(34, 197, 94, 0.3), rgba(15, 23, 42, 0.95));
+      border-radius: var(--radius-xl);
+      padding: 1.4rem 1.3rem;
+      border: 1px solid rgba(34, 197, 94, 0.6);
+      box-shadow: var(--shadow-soft);
+      max-width: 480px;
+    }
+
+    .pricing-pill {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #bbf7d0;
+      margin-bottom: 0.4rem;
+    }
+
+    .pricing-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .pricing-main {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 2rem;
+      font-weight: 600;
+    }
+
+    .pricing-period {
+      font-size: 0.85rem;
+      color: #bbf7d0;
+    }
+
+    .pricing-sub {
+      font-size: 0.85rem;
+      color: #bbf7d0;
+      margin-bottom: 0.75rem;
+    }
+
+    .pricing-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 0.9rem;
+      font-size: 0.82rem;
+      color: var(--text-soft);
+    }
+
+    .pricing-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+    }
+
+    .pricing-list li + li {
+      margin-top: 0.25rem;
+    }
+
+    .pricing-bullet {
+      margin-top: 0.2rem;
+      font-size: 0.9rem;
+    }
+
+    .pricing-fine {
+      font-size: 0.7rem;
+      color: var(--text-soft);
+      opacity: 0.9;
+    }
+
+    /* Community */
+
+    .community-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .community-card {
+      background: var(--bg-soft);
+      border-radius: var(--radius-xl);
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .community-badge {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-soft);
+      margin-bottom: 0.35rem;
+    }
+
+    .community-main {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      line-height: 1.6;
+      margin-bottom: 0.7rem;
+    }
+
+    .community-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.7rem;
+    }
+
+    .community-tag {
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 0.15rem 0.55rem;
+      color: var(--text-soft);
+      background: rgba(15, 23, 42, 0.7);
+    }
+
+    .community-mock {
+      background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.35), rgba(15, 23, 42, 0.98));
+      border-radius: 32px;
+      padding: 0.9rem 0.9rem 1.2rem;
+      border: 1px solid rgba(59, 130, 246, 0.65);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .community-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.65rem;
+      font-size: 0.8rem;
+    }
+
+    .community-server {
+      font-weight: 600;
+    }
+
+    .community-status {
+      font-size: 0.7rem;
+      color: #bbf7d0;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.85);
+    }
+
+    .community-messages {
+      display: grid;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+    }
+
+    .msg {
+      background: rgba(15, 23, 42, 0.75);
+      border-radius: 14px;
+      padding: 0.45rem 0.55rem;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .msg-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-soft);
+      margin-bottom: 0.15rem;
+    }
+
+    .msg-main {
+      font-size: 0.8rem;
+    }
+
+    .msg-main span {
+      color: #bfdbfe;
+    }
+
+    .msg-small {
+      font-size: 0.7rem;
+      color: var(--text-soft);
+      margin-top: 0.2rem;
+    }
+
+    /* FAQ */
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .faq-item {
+      background: var(--bg-soft);
+      border-radius: var(--radius-lg);
+      padding: 0.9rem;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .faq-q {
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+
+    .faq-a {
+      font-size: 0.82rem;
+      color: var(--text-soft);
+      line-height: 1.6;
+    }
+
+    .faq-note {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    /* Risk Disclaimer */
+
+    .disclaimer {
+      background: radial-gradient(circle at top, rgba(248, 113, 113, 0.16), rgba(15, 23, 42, 0.96));
+      border-radius: var(--radius-xl);
+      padding: 1.2rem 1.1rem;
+      border: 1px solid rgba(248, 113, 113, 0.8);
+      max-width: 920px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .disclaimer-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #fecaca;
+      margin-bottom: 0.35rem;
+    }
+
+    .disclaimer-body {
+      font-size: 0.8rem;
+      color: #fecaca;
+      line-height: 1.7;
+    }
+
+    /* Footer */
+
+    .footer {
+      border-top: 1px solid rgba(148, 163, 184, 0.3);
+      padding: 1.8rem 0 2.4rem;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+    }
+
+    .footer-links a {
+      color: var(--text-soft);
+    }
+
+    .footer-small {
+      font-size: 0.7rem;
+      opacity: 0.9;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      .hero-inner,
+      .features-layout,
+      .community-grid,
+      .faq-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-inner {
+        gap: 2.1rem;
+      }
+
+      .stats-row,
+      .how-grid,
+      .feature-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-card {
+        max-width: 440px;
+        margin-inline: auto;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav-inner {
+        align-items: center;
+      }
+
+      .nav-links,
+      .nav-cta {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+      }
+
+      .hero {
+        padding-top: 2.5rem;
+      }
+
+      .stats-strip {
+        padding-top: 0.2rem;
+      }
+    }
+
+    /* Simple mobile menu reveal (no animation) */
+
+    @media (max-width: 760px) {
+      .nav-open .nav-links,
+      .nav-open .nav-cta {
+        display: flex;
+      }
+
+      .nav-open .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 0.75rem;
+      }
+
+      .nav-open .nav-cta {
+        justify-content: center;
+        margin-top: 0.75rem;
+      }
+
+      .nav {
+        background: rgba(2, 6, 23, 0.98);
+      }
+
+      .nav-inner {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- NAV -->
+    <header class="nav">
+      <div class="container">
+        <div class="nav-inner" id="navInner">
+          <a href="#top" class="brand">
+            <div class="brand-logo">
+              <!-- Replace ST with your eagle logo image if desired -->
+              <span>ST</span>
+            </div>
+            <div class="brand-text">
+              <span class="brand-name">Simply Trading</span>
+              <span class="brand-subtitle">Education · Community · Discipline</span>
+            </div>
+          </a>
+
+          <nav class="nav-links">
+            <a href="#how">How it works</a>
+            <a href="#features">Features</a>
+            <a href="#education">Education</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#community">Community</a>
+            <a href="#faq">FAQ</a>
+          </nav>
+
+          <div class="nav-cta">
+            <span class="badge-flat">Flat-fee · All-access</span>
+            <a href="YOUR_DISCORD_INVITE_LINK" class="btn btn-primary">
+              Join Discord
+              <span>↗</span>
+            </a>
+          </div>
+
+          <button class="nav-toggle" type="button" id="navToggle">
+            Menu
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <main id="top">
+      <section class="hero">
+        <div class="container">
+          <div class="hero-inner">
+            <div>
+              <div class="eyebrow">
+                <span class="eyebrow-dot"></span>
+                <span>Live trading · education focused</span>
+              </div>
+
+              <h1 class="hero-title">
+                Learn the markets.<br />
+                <span class="highlight">Trade with a team.</span>
+              </h1>
+
+              <p class="hero-subtitle">
+                Simply Trading is a flat-fee community for traders who want more than random alerts.
+                Learn the <strong>why</strong> behind every setup, follow live callouts, and build repeatable processes
+                without paying per-channel upsells.
+              </p>
+
+              <div class="hero-cta-row">
+                <a href="YOUR_DISCORD_INVITE_LINK" class="btn btn-primary">
+                  Join the Discord
+                  <span>↗</span>
+                </a>
+                <a href="#pricing" class="btn btn-outline">
+                  View membership details
+                </a>
+              </div>
+
+              <p class="hero-note">
+                <span>One flat membership.</span> Full access to live callouts, education, classes, and support.
+              </p>
+
+              <p class="hero-disclaimer">
+                We teach strategies and share how our team trades. Nothing here is financial advice, investment
+                recommendations, or a guarantee of results. You are responsible for your own decisions and risk.
+              </p>
+            </div>
+
+            <!-- Hero "dashboard" / trade card -->
+            <div class="hero-card" aria-label="Sample trade callout layout">
+              <div class="hero-card-inner">
+                <div class="hero-card-header">
+                  <span class="hc-title">Live Callout · Example View</span>
+                  <span class="hc-pill">
+                    <span class="hc-pill-dot"></span>
+                    Session: New York Open
+                  </span>
+                </div>
+
+                <div class="hc-grid">
+                  <div class="hc-card">
+                    <div class="hc-label">Symbol · Plan</div>
+                    <div class="hc-main">
+                      <span class="hc-value">@SPY</span>
+                      <span class="hc-chip">Call scalp · 0DTE</span>
+                    </div>
+                    <div class="hc-footnote">
+                      Entry <span>506.2–506.7</span> · Risk <span>505.4</span> · Target <span>509+</span>
+                    </div>
+                  </div>
+
+                  <div class="hc-card">
+                    <div class="hc-label">Context</div>
+                    <div class="hc-main">
+                      <span class="hc-value">Liquidity grab</span>
+                    </div>
+                    <div class="hc-footnote">
+                      Above premarket high · watching volume + ES levels for confirmation.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="hc-footnote">
+                  Example layout only. <span>We break down the levels, thesis, and risk on every callout.</span>
+                  Charts, context, and post-trade reviews are included on real trades.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick stats -->
+          <div class="stats-strip">
+            <div class="stats-row">
+              <div class="stat-card">
+                <div class="stat-label">What you get</div>
+                <div class="stat-value">Live callouts + education</div>
+                <div class="stat-tag">No “signals only” gimmicks</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Membership model</div>
+                <div class="stat-value">Flat monthly fee</div>
+                <div class="stat-tag">Full access · no per-channel upsells</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Focus</div>
+                <div class="stat-value">Clarity & risk first</div>
+                <div class="stat-tag">You will see losses, not just wins</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section id="how">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-eyebrow">How Simply Trading works</div>
+            <h2 class="section-title">Built around real trading days, not screenshots</h2>
+            <p class="section-subtitle">
+              We structure everything around the live market. From pre-market prep to post-session review,
+              you always understand the context and the risk driving each idea.
+            </p>
+          </div>
+
+          <div class="how-grid">
+            <div class="how-card">
+              <div class="how-step">Step 1 · Join & onboard</div>
+              <div class="how-title">Get set up in minutes</div>
+              <div class="how-body">
+                Join the Discord, introduce yourself, and walk through the quick-start guide. We help you set up chart
+                layouts, basic risk rules, and the channels you actually need.
+              </div>
+            </div>
+
+            <div class="how-card">
+              <div class="how-step">Step 2 · Trade with context</div>
+              <div class="how-title">Follow live callouts with a plan</div>
+              <div class="how-body">
+                Analysts share levels, thesis, invalidation, and management plans in real time. You see both winners and
+                losses, with a focus on process and probability, not hype.
+              </div>
+            </div>
+
+            <div class="how-card">
+              <div class="how-step">Step 3 · Learn the “why”</div>
+              <div class="how-title">Classes, breakdowns, and replays</div>
+              <div class="how-body">
+                Live classes, recorded sessions, and strategy deep-dives explain the patterns we trade. Ask questions,
+                see annotated charts, and build a playbook you can repeat.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURES -->
+      <section id="features">
+        <div class="container">
+          <div class="features-layout">
+            <div>
+              <div class="section-header">
+                <div class="section-eyebrow">What’s inside</div>
+                <h2 class="section-title">Everything in one membership</h2>
+                <p class="section-subtitle">
+                  One flat fee gives you access to live callouts, education, and support. No nickel-and-diming you for
+                  “premium” channels or secret strategies.
+                </p>
+              </div>
+
+              <div class="feature-grid">
+                <div class="feature-card">
+                  <div class="feature-tag">Live trading / callouts</div>
+                  <div class="feature-title">Real-time plans, not vague alerts</div>
+                  <div class="feature-body">
+                    Trade ideas include <strong>levels, risk, and thesis</strong>. You see what we are watching, why we
+                    like the setup, and how we plan to manage it if price behaves differently.
+                  </div>
+                </div>
+
+                <div class="feature-card">
+                  <div class="feature-tag">Education library</div>
+                  <div class="feature-title">On-demand lessons</div>
+                  <div class="feature-body">
+                    Structured videos, guides, and examples covering market structure, liquidity, options basics, and
+                    account risk. Learn at your own pace and revisit as needed.
+                  </div>
+                </div>
+
+                <div class="feature-card">
+                  <div class="feature-tag">Live classes</div>
+                  <div class="feature-title">Walk through setups together</div>
+                  <div class="feature-body">
+                    Regular live sessions where we chart together, walk through recent trades, and answer questions
+                    in real time. Replays are posted for members who cannot attend.
+                  </div>
+                </div>
+
+                <div class="feature-card">
+                  <div class="feature-tag">Analyst team</div>
+                  <div class="feature-title">Multiple perspectives</div>
+                  <div class="feature-body">
+                    Different analysts focus on different products and styles, so you can see how swing traders, scalpers,
+                    and intraday traders think through the same conditions.
+                  </div>
+                </div>
+
+                <div class="feature-card">
+                  <div class="feature-tag">Community</div>
+                  <div class="feature-title">Supportive, no-ego environment</div>
+                  <div class="feature-body">
+                    A curated group of traders who are serious about improving. Questions are encouraged, mistakes are
+                    reviewed, and PnL flexing is not the point.
+                  </div>
+                </div>
+
+                <div class="feature-card">
+                  <div class="feature-tag">Tools</div>
+                  <div class="feature-title">Dashboards & templates</div>
+                  <div class="feature-body">
+                    Members get access to tracking templates, trade journals, and structure checklists to keep your
+                    trading consistent and data-driven.
+                  </div>
+                </div>
+              </div>
+
+              <p class="feature-note">
+                We are not a broker, advisor, or money manager. We show you how we trade and give you tools to build your
+                own process.
+              </p>
+            </div>
+
+            <aside class="feature-highlight" id="education">
+              <h3>Education-first by design</h3>
+              <p>
+                You are not here to copy someone else forever. Our goal is that over time, you rely less on live callouts
+                and more on your own rules and playbook.
+              </p>
+              <ul>
+                <li>Strategy breakdowns with examples and common traps</li>
+                <li>Risk management frameworks you can actually follow</li>
+                <li>Account protection and sizing for different account sizes</li>
+                <li>Mindset and routine building for consistency</li>
+              </ul>
+              <p>
+                Every new member is pointed to a simple “start here” path so you are not lost in channels or content
+                overload.
+              </p>
+              <a href="YOUR_DISCORD_INVITE_LINK" class="btn btn-outline" style="margin-top: 0.4rem;">
+                Start with the education path
+              </a>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRICING -->
+      <section id="pricing">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-eyebrow">Membership</div>
+            <h2 class="section-title">Flat-fee access. No hidden tiers.</h2>
+            <p class="section-subtitle">
+              One membership level. When you join, you get access to everything: live callouts, education, classes,
+              tools, and community. No surprise “VIP” rooms.
+            </p>
+          </div>
+
+          <div class="pricing-card">
+            <div class="pricing-pill">All-access membership</div>
+
+            <!-- Replace this with your actual pricing -->
+            <div class="pricing-price-row">
+              <div class="pricing-main">$XX</div>
+              <div class="pricing-period">per month</div>
+            </div>
+
+            <div class="pricing-sub">
+              Cancel anytime. Access remains active through the end of your billing period.
+            </div>
+
+            <ul class="pricing-list">
+              <li>
+                <span class="pricing-bullet">•</span>
+                <span>Live trading / callout channels for the instruments we focus on.</span>
+              </li>
+              <li>
+                <span class="pricing-bullet">•</span>
+                <span>Education library, playbooks, and member resources.</span>
+              </li>
+              <li>
+                <span class="pricing-bullet">•</span>
+                <span>Live classes, Q&amp;A sessions, and replays.</span>
+              </li>
+              <li>
+                <span class="pricing-bullet">•</span>
+                <span>Access to community channels and support.</span>
+              </li>
+              <li>
+                <span class="pricing-bullet">•</span>
+                <span>Tools &amp; templates built by the team.</span>
+              </li>
+            </ul>
+
+            <a href="YOUR_CHECKOUT_LINK_OR_DISCORD" class="btn btn-primary">
+              Join Simply Trading
+              <span>↗</span>
+            </a>
+
+            <p class="pricing-fine">
+              We do not manage money, place trades on your behalf, or guarantee returns. Your results depend on your own
+              decisions, risk tolerance, and discipline.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- COMMUNITY -->
+      <section id="community">
+        <div class="container">
+          <div class="community-grid">
+            <div>
+              <div class="section-header">
+                <div class="section-eyebrow">Community</div>
+                <h2 class="section-title">Trading is easier when you are not doing it alone</h2>
+                <p class="section-subtitle">
+                  Most traders quit because they try to figure everything out in isolation. Our community keeps you grounded,
+                  accountable, and focused on the right problems.
+                </p>
+              </div>
+
+              <div class="community-card">
+                <div class="community-badge">Inside the server</div>
+                <p class="community-main">
+                  Channels are organized around <strong>session, product, and purpose</strong>. From pre-market prep and
+                  live callouts to post-session reviews, you always know where to go for what you need.
+                </p>
+                <div class="community-tags">
+                  <span class="community-tag">Pre-market prep</span>
+                  <span class="community-tag">Live callouts</span>
+                  <span class="community-tag">Chart breakdowns</span>
+                  <span class="community-tag">Education threads</span>
+                  <span class="community-tag">Member wins &amp; lessons</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Discord-like mockup -->
+            <aside class="community-mock" aria-label="Illustrative view of community chat">
+              <div class="community-header-row">
+                <div class="community-server">Simply Trading · Live Session</div>
+                <div class="community-status">
+                  <span class="status-dot"></span>
+                  Session online
+                </div>
+              </div>
+              <div class="community-messages">
+                <div class="msg">
+                  <div class="msg-label">Pre-market levels</div>
+                  <div class="msg-main">
+                    Today’s focus: <span>SPX, QQQ, TSLA</span>. Watching overnight highs and prior day VWAP for first
+                    liquidity grabs. Full plan posted in #pre-market-notes.
+                  </div>
+                  <div class="msg-small">
+                    Goal: trade <strong>with</strong> the main move, not chop in the middle.
+                  </div>
+                </div>
+                <div class="msg">
+                  <div class="msg-label">Live callout · Example</div>
+                  <div class="msg-main">
+                    SPX liquidity sweep complete. Looking for calls above 5059 if buyers hold. <span>Risk: 5051</span>,
+                    first target 5075. Partial at 8–10 points.
+                  </div>
+                  <div class="msg-small">
+                    Reminder: if we do not get confirmation, we skip. No FOMO entries.
+                  </div>
+                </div>
+                <div class="msg">
+                  <div class="msg-label">Review &amp; lessons</div>
+                  <div class="msg-main">
+                    Closed runners at 5078. Great execution from the room. We will break this down in tonight’s review
+                    and talk through what made this cleaner than yesterday’s chop.
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ + RISK -->
+      <section id="faq">
+        <div class="container">
+          <div class="faq-grid">
+            <div>
+              <div class="section-header">
+                <div class="section-eyebrow">Common questions</div>
+                <h2 class="section-title">What to know before you join</h2>
+                <p class="section-subtitle">
+                  We want you to have clear expectations. This is a place to learn and improve, not a shortcut to easy
+                  money.
+                </p>
+              </div>
+
+              <div class="faq-list">
+                <div class="faq-item">
+                  <div class="faq-q">Is this financial advice?</div>
+                  <div class="faq-a">
+                    No. Nothing in the community is financial, investment, or trading advice. We show you how we think, how
+                    we trade, and the rules we use. You are responsible for your own decisions and outcomes.
+                  </div>
+                </div>
+                <div class="faq-item">
+                  <div class="faq-q">Do you guarantee results or profits?</div>
+                  <div class="faq-a">
+                    No. Trading involves substantial risk and there is no guarantee of profit. Some members may lose money,
+                    especially while learning. You should never trade money you cannot afford to lose.
+                  </div>
+                </div>
+                <div class="faq-item">
+                  <div class="faq-q">What skill level is this for?</div>
+                  <div class="faq-a">
+                    We have members from “just starting out” to experienced traders looking to sharpen their process.
+                    Education content assumes you are willing to do the work and ask questions when something is unclear.
+                  </div>
+                </div>
+                <div class="faq-item">
+                  <div class="faq-q">Can I cancel anytime?</div>
+                  <div class="faq-a">
+                    Yes. You can cancel your membership at any time through the platform you signed up on. You will keep
+                    access until the end of your billing period.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <aside>
+              <p class="faq-note">
+                Still not sure if it is the right fit? Join, explore the education and live channels, and ask questions.
+                If the environment or structure is not what you need, you can cancel before the next billing cycle.
+              </p>
+              <a href="YOUR_DISCORD_INVITE_LINK" class="btn btn-primary" style="margin-top: 0.8rem;">
+                Enter the community
+              </a>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- RISK DISCLAIMER -->
+      <section>
+        <div class="container">
+          <div class="disclaimer">
+            <div class="disclaimer-title">Risk disclaimer</div>
+            <div class="disclaimer-body">
+              Trading stocks, options, futures, currencies, or any leveraged products involves significant risk and may not
+              be suitable for every investor. You can lose some or all of your initial investment, and you should not trade
+              with capital you cannot afford to lose. All information provided by Simply Trading, its community, and its
+              team is for educational and informational purposes only and should not be interpreted as financial, investment,
+              tax, or legal advice. Past performance is not indicative of future results. You are solely responsible for
+              evaluating your own financial circumstances, risk tolerance, and decisions before placing any trade.
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-inner">
+          <div>
+            © <span id="year"></span> Simply Trading. All rights reserved.
+            <div class="footer-small">
+              Educational community only. No financial, investment, or tax advice is provided.
+            </div>
+          </div>
+
+          <div class="footer-links">
+            <a href="mailto:YOUR_EMAIL_HERE">Contact</a>
+            <a href="YOUR_DISCORD_INVITE_LINK">Discord</a>
+            <a href="YOUR_X_PROFILE_LINK">X (Twitter)</a>
+            <a href="YOUR_INSTAGRAM_LINK">Instagram</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Simple mobile nav toggle
+    const navToggle = document.getElementById("navToggle");
+    const navInner = document.getElementById("navInner");
+
+    if (navToggle && navInner) {
+      navToggle.addEventListener("click", () => {
+        navInner.classList.toggle("nav-open");
+      });
+    }
+
+    // Dynamic year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
