@@ -86,6 +86,56 @@
   </script>
 
   <style>
+    /* SOCIAL */
+
+.social-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.social-card {
+  background: var(--bg-elevated);
+  border-radius: var(--radius-lg);
+  padding: 1rem;
+  border: 1px solid var(--border-subtle);
+}
+
+.social-note {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  margin-top: 0.6rem;
+}
+
+.social-visual {
+  background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 1));
+  border-radius: var(--radius-xl);
+  padding: 0.9rem;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-soft);
+  font-size: 0.8rem;
+}
+
+.social-visual img {
+  border-radius: 18px;
+  border: 1px solid var(--border-subtle);
+  margin-bottom: 0.6rem;
+}
+
+.social-visual-caption {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+
+/* Make social layout stack on mobile */
+@media (max-width: 900px) {
+  .social-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
     :root {
       /* Neutral base (no brand gradients) */
       --bg: #020617;          /* Deep slate */
@@ -888,6 +938,8 @@
       color: var(--text-soft);
     }
 
+    
+
     /* FAQ */
 
     .faq-grid {
@@ -1073,6 +1125,7 @@
             <a href="#updates">2026 features</a>
             <a href="#pricing">Membership</a>
             <a href="#faq">FAQ</a>
+            <a href="#social">Social</a>
           </nav>
 
           <div class="nav-cta">
@@ -1507,6 +1560,59 @@
         </div>
       </section>
 
+      <!-- SOCIAL -->
+      <section id="social" class="section-alt">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-eyebrow">Live from Simply Trading</div>
+            <h2 class="section-title">See the latest from X and the community.</h2>
+            <p class="section-subtitle">
+              Get a feel for the tone, pacing, and style of content we share outside the room.
+              Follow along on X, and explore the full experience inside the community.
+            </p>
+          </div>
+
+          <div class="social-grid">
+            <!-- X / Twitter live feed -->
+            <div class="social-card">
+              <a class="twitter-timeline"
+                 data-theme="dark"
+                 data-height="420"
+                 href="https://x.com/SimplyTradingCo">
+                Posts by @SimplyTradingCo
+              </a>
+              <div class="social-note">
+                Feed updates live from X. For full breakdowns, lessons, and trade reviews,
+                everything happens inside the Simply Trading community on Whop.
+              </div>
+            </div>
+
+            <!-- Visual side: image + IG call-to-action -->
+            <aside class="social-visual">
+              <!-- Replace this path with a real screenshot you add to your repo -->
+              <img
+                src="images/trader-multimonitor.jpg"
+                alt="Simply Trading community studying options and index setups on multiple monitors"
+              />
+              <div class="social-visual-caption">
+                The goal is simple: clear context, repeatable frameworks, and a room that
+                takes risk seriously. For more behind-the-scenes content and quick hits,
+                follow us on Instagram:
+                <br /><br />
+                <a
+                  href="https://www.instagram.com/simplytrading.co/"
+                  target="_blank"
+                  rel="noopener"
+                  class="btn btn-outline"
+                >
+                  Open Instagram
+                </a>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
       <!-- FAQ -->
       <section id="faq" class="section-alt">
         <div class="container">
@@ -1620,6 +1726,9 @@
       </div>
     </footer>
   </div>
+
+  <!-- X (Twitter) widgets for live feed -->
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
   <script>
     // Mobile nav toggle (simplified, should behave cleanly)
