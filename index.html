@@ -140,50 +140,64 @@
       overflow: hidden;
     }
 
-    /* Subtle animated background grid / halo (non-brand colors) */
-    .page::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background:
-        radial-gradient(circle at 0% 0%, rgba(148, 163, 184, 0.18) 0, transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(30, 64, 175, 0.35) 0, transparent 55%),
-        repeating-linear-gradient(
-          to right,
-          rgba(15, 23, 42, 0.4) 0,
-          rgba(15, 23, 42, 0.4) 1px,
-          transparent 1px,
-          transparent 32px
-        ),
-        repeating-linear-gradient(
-          to bottom,
-          rgba(15, 23, 42, 0.4) 0,
-          rgba(15, 23, 42, 0.4) 1px,
-          transparent 1px,
-          transparent 32px
-        );
-      opacity: 0.75;
-      mix-blend-mode: soft-light;
-      pointer-events: none;
-      animation: bgFloat 38s linear infinite alternate;
-      z-index: -1;
-    }
+.page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(148, 163, 184, 0.18) 0, transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(30, 64, 175, 0.35) 0, transparent 55%),
+    repeating-linear-gradient(
+      to right,
+      rgba(15, 23, 42, 0.4) 0,
+      rgba(15, 23, 42, 0.4) 1px,
+      transparent 1px,
+      transparent 32px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      rgba(15, 23, 42, 0.4) 0,
+      rgba(15, 23, 42, 0.4) 1px,
+      transparent 1px,
+      transparent 32px
+    );
+  opacity: 0.8;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+  z-index: -1;
 
-    @keyframes bgFloat {
-      from {
-        transform: translate3d(0, 0, 0);
-      }
-      to {
-        transform: translate3d(-40px, -40px, 0);
-      }
-    }
+  /* Animate background positions instead of tiny translate */
+  background-position:
+    0px 0px,
+    100% 100%,
+    0px 0px,
+    0px 0px;
+  animation: bgDrift 40s linear infinite;
+}
 
-    .container {
-      width: 100%;
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
+@keyframes bgDrift {
+  0% {
+    background-position:
+      0px 0px,
+      100% 100%,
+      0px 0px,
+      0px 0px;
+  }
+  50% {
+    background-position:
+      -120px 40px,
+      calc(100% + 120px) calc(100% - 40px),
+      -64px 0px,
+      0px -64px;
+  }
+  100% {
+    background-position:
+      -240px 80px,
+      calc(100% + 240px) calc(100% - 80px),
+      -128px 0px,
+      0px -128px;
+  }
+}
 
     /* NAV */
 
