@@ -2,20 +2,96 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Simply Trading – Options & Index Trading Education</title>
+  <title>Simply Trading – Stock Options & Index Trading Education Community</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Core SEO -->
   <meta
     name="description"
-    content="Simply Trading is a private trading community for serious options and index traders. Learn structured strategies, follow live context, and grow with a disciplined group of traders."
+    content="Simply Trading is a private stock options and index trading education community. Get structured trading frameworks, live market context, and a serious group of traders focused on process over hype."
   />
+  <meta
+    name="keywords"
+    content="stock options trading education, options trading community, index trading strategies, how to trade options, trading education discord, SPX trading, NQ trading, Simply Trading"
+  />
+  <link rel="canonical" href="https://simplytrading.info/" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Simply Trading – Stock Options & Index Trading Education Community" />
+  <meta
+    property="og:description"
+    content="Learn stock options and index trading with a serious, structured community. Education first, live context, and clear risk-focused frameworks."
+  />
+  <meta property="og:url" content="https://simplytrading.info/" />
+  <!-- If you add a social preview image, update this path -->
+  <!--<meta property="og:image" content="https://simplytrading.info/assets/social-preview.jpg" />-->
+
+  <!-- Structured data: org + FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Simply Trading",
+    "url": "https://simplytrading.info/",
+    "description": "Simply Trading is a private trading education community focused on stock options and index trading. Members get structured frameworks, live commentary, and an honest, risk-aware environment.",
+    "sameAs": [
+      "https://whop.com/simply-trading-b0/simply-trading-b0/?utm_source=store_page&funnelId=store_74e2c187-fb89-4824-9cc8-9c869190f368",
+      "https://x.com/SimplyTradingCo",
+      "https://www.instagram.com/simplytrading.co/"
+    ],
+    "areaServed": "Worldwide"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Simply Trading alerts or education?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Simply Trading is an education-focused trading community. Members see trade ideas and real-time context, but the focus is on teaching you how to build and execute your own trading plan, not blindly copy alerts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What skill level is Simply Trading for?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Simply Trading has members who are newer to trading and traders with more experience who want more structure. If you respect risk, want to improve, and are willing to learn, you will fit in."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I cancel my Simply Trading membership?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All Simply Trading memberships are handled through Whop. You can cancel anytime from your Whop dashboard, and your access will continue until the end of your paid period."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Simply Trading guarantee profits or results?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Trading involves significant risk and there is no guarantee of profit. All information from Simply Trading is for educational purposes only, and you are responsible for your own trading decisions and risk management."
+        }
+      }
+    ]
+  }
+  </script>
 
   <style>
     :root {
-      /* Neutral base */
-      --bg: #05070b;
-      --bg-alt: #0b0f14;
-      --bg-elevated: #121621;
-      --bg-soft: #181c27;
+      /* Neutral base (no brand gradients) */
+      --bg: #020617;          /* Deep slate */
+      --bg-alt: #050816;
+      --bg-elevated: #0b1020;
+      --bg-soft: #141827;
 
       /* Brand accents (used sparingly) */
       --primary: #61924E;      /* Deep Trading Green */
@@ -42,10 +118,7 @@
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter",
         sans-serif;
-      background:
-        radial-gradient(circle at 0 0, rgba(148, 163, 184, 0.18) 0, transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(15, 23, 42, 0.7) 0, transparent 55%),
-        var(--bg);
+      background: var(--bg);
       color: var(--text);
       -webkit-font-smoothing: antialiased;
       min-height: 100vh;
@@ -63,6 +136,46 @@
 
     .page {
       min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle animated background grid / halo (non-brand colors) */
+    .page::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(148, 163, 184, 0.18) 0, transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(30, 64, 175, 0.35) 0, transparent 55%),
+        repeating-linear-gradient(
+          to right,
+          rgba(15, 23, 42, 0.4) 0,
+          rgba(15, 23, 42, 0.4) 1px,
+          transparent 1px,
+          transparent 32px
+        ),
+        repeating-linear-gradient(
+          to bottom,
+          rgba(15, 23, 42, 0.4) 0,
+          rgba(15, 23, 42, 0.4) 1px,
+          transparent 1px,
+          transparent 32px
+        );
+      opacity: 0.75;
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+      animation: bgFloat 38s linear infinite alternate;
+      z-index: -1;
+    }
+
+    @keyframes bgFloat {
+      from {
+        transform: translate3d(0, 0, 0);
+      }
+      to {
+        transform: translate3d(-40px, -40px, 0);
+      }
     }
 
     .container {
@@ -81,11 +194,11 @@
       backdrop-filter: blur(18px);
       background: linear-gradient(
         to bottom,
-        rgba(5, 7, 11, 0.98),
-        rgba(5, 7, 11, 0.94),
+        rgba(2, 6, 23, 0.98),
+        rgba(2, 6, 23, 0.92),
         transparent
       );
-      border-bottom: 1px solid rgba(31, 41, 55, 0.9);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.9);
     }
 
     .nav-inner {
@@ -228,7 +341,7 @@
       display: none;
       border-radius: 999px;
       border: 1px solid rgba(148, 163, 184, 0.7);
-      background: #111827;
+      background: #020617;
       padding: 0.35rem 0.7rem;
       font-size: 0.8rem;
       color: var(--text-soft);
@@ -272,7 +385,6 @@
     }
 
     .hero-title {
-      font-family: system-ui, sans-serif;
       font-weight: 650;
       font-size: clamp(2.4rem, 3.6vw, 3rem);
       line-height: 1.08;
@@ -421,7 +533,7 @@
     /* STATS */
 
     .stats {
-      padding: 0.6rem 0 2rem;
+      padding: 0.6rem 0 2.4rem;
     }
 
     .stats-row {
@@ -431,7 +543,7 @@
     }
 
     .stat-card {
-      background: var(--bg-elevated);
+      background: rgba(11, 16, 32, 0.94);
       border-radius: var(--radius-lg);
       padding: 0.8rem 0.9rem;
       border: 1px solid var(--border-subtle);
@@ -484,6 +596,11 @@
       color: var(--text-soft);
       max-width: 32rem;
       line-height: 1.6;
+    }
+
+    .section-alt {
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), transparent 70%);
+      border-block: 1px solid rgba(15, 23, 42, 0.9);
     }
 
     /* HOW IT WORKS */
@@ -597,6 +714,41 @@
 
     .feature-highlight li + li {
       margin-top: 0.2rem;
+    }
+
+    /* 2026 UPDATES */
+
+    .updates-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.3rem;
+    }
+
+    .update-card {
+      background: rgba(11, 16, 32, 0.96);
+      border-radius: var(--radius-lg);
+      padding: 0.9rem;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .update-pill {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-soft);
+      margin-bottom: 0.35rem;
+    }
+
+    .update-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .update-body {
+      font-size: 0.84rem;
+      color: var(--text-soft);
+      line-height: 1.6;
     }
 
     /* PRICING */
@@ -782,11 +934,11 @@
     /* FOOTER */
 
     .footer {
-      border-top: 1px solid rgba(31, 41, 55, 0.95);
+      border-top: 1px solid rgba(15, 23, 42, 0.95);
       padding: 1.8rem 0 2.3rem;
       font-size: 0.8rem;
       color: var(--text-soft);
-      background: #05070b;
+      background: var(--bg-alt);
     }
 
     .footer-inner {
@@ -829,7 +981,8 @@
 
       .stats-row,
       .how-grid,
-      .feature-grid {
+      .feature-grid,
+      .updates-grid {
         grid-template-columns: minmax(0, 1fr);
       }
 
@@ -854,20 +1007,22 @@
         flex-wrap: wrap;
       }
 
-      .nav-open .nav-links,
-      .nav-open .nav-cta {
+      body.menu-open .nav-links,
+      body.menu-open .nav-cta {
         display: flex;
       }
 
-      .nav-open .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
+      body.menu-open .nav-links {
+        flex-direction: column;
+        width: 100%;
         margin-top: 0.6rem;
+        padding-top: 0.5rem;
+        border-top: 1px solid rgba(30, 64, 175, 0.4);
       }
 
-      .nav-open .nav-cta {
-        justify-content: center;
-        margin-top: 0.4rem;
+      body.menu-open .nav-cta {
+        justify-content: flex-start;
+        margin-top: 0.6rem;
       }
 
       .hero {
@@ -885,16 +1040,17 @@
         <div class="nav-inner" id="navInner">
           <a href="#top" class="brand">
             <!-- Make sure this path matches your repo -->
-            <img src="assets/simply-trading-logo.jpg" alt="Simply Trading" class="brand-logo" />
+            <img src="assets/simply-trading-logo.jpg" alt="Simply Trading logo" class="brand-logo" />
             <div class="brand-text">
               <span class="brand-name">Simply Trading</span>
-              <span class="brand-subtitle">Education · Community · Discipline</span>
+              <span class="brand-subtitle">Stock Options · Index Trading · Education</span>
             </div>
           </a>
 
           <nav class="nav-links">
             <a href="#how">How it works</a>
             <a href="#features">What you get</a>
+            <a href="#updates">2026 features</a>
             <a href="#pricing">Membership</a>
             <a href="#faq">FAQ</a>
           </nav>
@@ -911,7 +1067,9 @@
             </a>
           </div>
 
-          <button class="nav-toggle" id="navToggle">Menu</button>
+          <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-label="Toggle menu">
+            Menu
+          </button>
         </div>
       </div>
     </header>
@@ -927,19 +1085,19 @@
                 <span>Simply your path to trading better</span>
               </div>
               <h1 class="hero-title">
-                Learn to trade with a
-                <span class="highlight">serious, structured</span> community.
+                Stock options & index trading
+                <span class="highlight">education with structure.</span>
               </h1>
               <p class="hero-subtitle">
-                Simply Trading is a private community for traders who want clear education,
-                live market context, and honest feedback — not hype or blind alerts.
-                We focus on options and index trading with repeatable frameworks you can
-                make your own.
+                Simply Trading is a private trading community for people who want clear
+                education, live market context, and honest feedback — not hype or blind
+                alerts. We focus on stock options and index trading with repeatable
+                frameworks you can make your own.
               </p>
 
               <div class="hero-cta-row">
                 <a
-                  href="https://whop.com/simply-trading-b0/simply-trading-b0/?utm_source=store_page&funnelId=store_74e2c187-fb89-4824-9c869190f368"
+                  href="https://whop.com/simply-trading-b0/simply-trading-b0/?utm_source=store_page&funnelId=store_74e2c187-fb89-4824-9cc8-9c869190f368"
                   target="_blank"
                   rel="noopener"
                   class="btn btn-primary"
@@ -958,8 +1116,8 @@
               </div>
 
               <p class="hero-note">
-                <span>4.9★ rated</span> community with live sessions, education, and
-                a supportive group of traders.
+                <span>4.9★ rated</span> trading education community with live sessions,
+                examples, and a serious group of traders.
               </p>
               <p class="hero-disclaimer">
                 Educational community only. Nothing here is financial, investment, or tax
@@ -1006,9 +1164,9 @@
               </div>
 
               <p class="hc-footnote">
-                This is the type of structure you see in the room: clear zones, trade
-                ideas with risk defined <span>before</span> entries, and ongoing
-                conversation about how the day is actually unfolding.
+                This is the type of structure you see in the room: clear zones, trade ideas
+                with risk defined <span>before</span> entries, and ongoing conversation
+                about how the day is actually unfolding.
               </p>
             </aside>
           </div>
@@ -1088,13 +1246,13 @@
       </section>
 
       <!-- FEATURES -->
-      <section id="features">
+      <section id="features" class="section-alt">
         <div class="container">
           <div class="features-layout">
             <div>
               <div class="section-header">
                 <div class="section-eyebrow">Inside the community</div>
-                <h2 class="section-title">What you get when you join.</h2>
+                <h2 class="section-title">What you get when you join Simply Trading.</h2>
                 <p class="section-subtitle">
                   Everything is built around helping you become a more independent trader:
                   clarity on context, clean examples, and a room that respects risk.
@@ -1125,8 +1283,8 @@
                   <div class="feature-tag">Community</div>
                   <div class="feature-title">Serious, supportive environment</div>
                   <p class="feature-body">
-                    Traders who actually show up, share ideas, and respect risk. No get
-                    rich fast promises, no spam, just people working to improve.
+                    Traders who actually show up, share ideas, and respect risk. No “get
+                    rich fast” promises, no spam — just people working to improve.
                   </p>
                 </div>
 
@@ -1142,7 +1300,7 @@
             </div>
 
             <aside class="feature-highlight">
-              <h3>Why Simply Trading instead of random discords?</h3>
+              <h3>Why Simply Trading instead of random signal rooms?</h3>
               <p>
                 Most trading communities blast alerts or chase the hottest ticker of the
                 week. This community is built around
@@ -1155,16 +1313,61 @@
                 <li>Hosted on Whop for secure payments and simple account management.</li>
               </ul>
               <p>
-                If you’re tired of noise, and want a focused space to sharpen your edge,
-                this is built for you.
+                If you’re tired of noise and want a focused space to sharpen your edge in
+                stock options and index trading, this is built for you.
               </p>
             </aside>
           </div>
         </div>
       </section>
 
+      <!-- 2026 UPDATES -->
+      <section id="updates">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-eyebrow">2026 features</div>
+            <h2 class="section-title">What’s new for Simply Trading members in 2026.</h2>
+            <p class="section-subtitle">
+              We are focusing 2026 on tighter structure, clearer examples, and tools that
+              make it easier to learn stock options and index trading the right way.
+            </p>
+          </div>
+
+          <div class="updates-grid">
+            <div class="update-card">
+              <div class="update-pill">2026</div>
+              <div class="update-title">Structured options tracks</div>
+              <p class="update-body">
+                New beginner-to-advanced tracks that walk you through options basics,
+                risk, and execution — so you know exactly what to study next instead of
+                guessing.
+              </p>
+            </div>
+
+            <div class="update-card">
+              <div class="update-pill">2026</div>
+              <div class="update-title">Playbook &amp; journaling templates</div>
+              <p class="update-body">
+                Updated trading playbook examples and simple journaling templates to help
+                you track setups, risk, and performance in a way you will actually keep up
+                with.
+              </p>
+            </div>
+
+            <div class="update-card">
+              <div class="update-pill">2026</div>
+              <div class="update-title">Session review focus</div>
+              <p class="update-body">
+                More emphasis on post-session reviews: what worked, what did not, and how
+                to adapt your plan based on real trades — not just theory.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- PRICING -->
-      <section id="pricing">
+      <section id="pricing" class="section-alt">
         <div class="container">
           <div class="pricing-layout">
             <div>
@@ -1209,7 +1412,7 @@
                 </ul>
 
                 <a
-                  href="https://whop.com/simply-trading-b0/simply-trading-b0/?utm_source=store_page&funnelId=store_74e2c187-fb89-4824-9c869190f368"
+                  href="https://whop.com/simply-trading-b0/simply-trading-b0/?utm_source=store_page&funnelId=store_74e2c187-fb89-4824-9cc8-9c869190f368"
                   target="_blank"
                   rel="noopener"
                   class="btn btn-primary"
@@ -1264,6 +1467,7 @@
                 share trade ideas, and get feedback without the ego.
               </p>
               <div class="community-tags">
+                <div class="community-tag">Stock options &amp; index trading</div>
                 <div class="community-tag">SPX / NQ focused</div>
                 <div class="community-tag">Respect for risk</div>
                 <div class="community-tag">Beginner friendly</div>
@@ -1272,10 +1476,10 @@
             </div>
 
             <aside>
-              <!-- Replace with a real image path if you have it in your repo -->
+              <!-- Replace with a real image path in your repo -->
               <img
                 src="images/trader-multimonitor.jpg"
-                alt="Traders watching multiple monitors"
+                alt="Traders studying stock options and index charts on multiple monitors"
                 style="border-radius:24px;border:1px solid var(--border-subtle);box-shadow:var(--shadow-soft);"
               />
             </aside>
@@ -1284,7 +1488,7 @@
       </section>
 
       <!-- FAQ -->
-      <section id="faq">
+      <section id="faq" class="section-alt">
         <div class="container">
           <div class="faq-grid">
             <div>
@@ -1297,9 +1501,9 @@
                 <div class="faq-item">
                   <div class="faq-q">Is this alerts or education?</div>
                   <div class="faq-a">
-                    This is an education-focused community. You will see trade ideas and
-                    examples, but the intent is to teach you how to build and execute your
-                    own plan — not to blindly copy someone else’s.
+                    This is an education-focused trading community. You will see trade
+                    ideas and examples, but the intent is to teach you how to build and
+                    execute your own plan — not to blindly copy someone else’s alerts.
                   </div>
                 </div>
 
@@ -1398,19 +1602,20 @@
   </div>
 
   <script>
-    // Mobile nav toggle
+    // Mobile nav toggle (simplified, should behave cleanly)
     const navToggle = document.getElementById("navToggle");
-    const navInner = document.getElementById("navInner");
-
-    if (navToggle && navInner) {
+    if (navToggle) {
       navToggle.addEventListener("click", () => {
-        navInner.classList.toggle("nav-open");
+        const isOpen = document.body.classList.toggle("menu-open");
+        navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
       });
     }
 
     // Dynamic year
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+    const yearEl = document.getElementById("year");
+    if (yearEl) {
+      yearEl.textContent = new Date().getFullYear();
+    }
   </script>
 </body>
 </html>
