@@ -88,53 +88,53 @@
   <style>
     /* SOCIAL */
 
-.social-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
-  gap: 2rem;
-  align-items: flex-start;
-}
+    .social-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
 
-.social-card {
-  background: var(--bg-elevated);
-  border-radius: var(--radius-lg);
-  padding: 1rem;
-  border: 1px solid var(--border-subtle);
-}
+    .social-card {
+      background: var(--bg-elevated);
+      border-radius: var(--radius-lg);
+      padding: 1rem;
+      border: 1px solid var(--border-subtle);
+    }
 
-.social-note {
-  font-size: 0.8rem;
-  color: var(--text-soft);
-  margin-top: 0.6rem;
-}
+    .social-note {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      margin-top: 0.6rem;
+    }
 
-.social-visual {
-  background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 1));
-  border-radius: var(--radius-xl);
-  padding: 0.9rem;
-  border: 1px solid var(--border-subtle);
-  box-shadow: var(--shadow-soft);
-  font-size: 0.8rem;
-}
+    .social-visual {
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 1));
+      border-radius: var(--radius-xl);
+      padding: 0.9rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.8rem;
+    }
 
-.social-visual img {
-  border-radius: 18px;
-  border: 1px solid var(--border-subtle);
-  margin-bottom: 0.6rem;
-}
+    .social-visual img {
+      border-radius: 18px;
+      border: 1px solid var(--border-subtle);
+      margin-bottom: 0.6rem;
+    }
 
-.social-visual-caption {
-  font-size: 0.8rem;
-  color: var(--text-soft);
-  line-height: 1.5;
-}
+    .social-visual-caption {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      line-height: 1.5;
+    }
 
-/* Make social layout stack on mobile */
-@media (max-width: 900px) {
-  .social-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
+    /* Make social layout stack on mobile */
+    @media (max-width: 900px) {
+      .social-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
 
     :root {
       /* Neutral base (no brand gradients) */
@@ -189,71 +189,72 @@
       position: relative;
       overflow: hidden;
     }
+
     .container {
-  width: 100%;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
 
-.page::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(circle at 0% 0%, rgba(148, 163, 184, 0.18) 0, transparent 55%),
-    radial-gradient(circle at 100% 100%, rgba(30, 64, 175, 0.35) 0, transparent 55%),
-    repeating-linear-gradient(
-      to right,
-      rgba(15, 23, 42, 0.4) 0,
-      rgba(15, 23, 42, 0.4) 1px,
-      transparent 1px,
-      transparent 32px
-    ),
-    repeating-linear-gradient(
-      to bottom,
-      rgba(15, 23, 42, 0.4) 0,
-      rgba(15, 23, 42, 0.4) 1px,
-      transparent 1px,
-      transparent 32px
-    );
-  opacity: 0.8;
-  mix-blend-mode: soft-light;
-  pointer-events: none;
-  z-index: -1;
+    .page::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(148, 163, 184, 0.18) 0, transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(30, 64, 175, 0.35) 0, transparent 55%),
+        repeating-linear-gradient(
+          to right,
+          rgba(15, 23, 42, 0.4) 0,
+          rgba(15, 23, 42, 0.4) 1px,
+          transparent 1px,
+          transparent 32px
+        ),
+        repeating-linear-gradient(
+          to bottom,
+          rgba(15, 23, 42, 0.4) 0,
+          rgba(15, 23, 42, 0.4) 1px,
+          transparent 1px,
+          transparent 32px
+        );
+      opacity: 0.8;
+      mix-blend-mode: soft-light;
+      pointer-events: none;
+      z-index: -1;
 
-  /* Animate background positions instead of tiny translate */
-  background-position:
-    0px 0px,
-    100% 100%,
-    0px 0px,
-    0px 0px;
-  animation: bgDrift 40s linear infinite;
-}
+      /* Animate background positions */
+      background-position:
+        0px 0px,
+        100% 100%,
+        0px 0px,
+        0px 0px;
+      animation: bgDrift 40s linear infinite;
+    }
 
-@keyframes bgDrift {
-  0% {
-    background-position:
-      0px 0px,
-      100% 100%,
-      0px 0px,
-      0px 0px;
-  }
-  50% {
-    background-position:
-      -120px 40px,
-      calc(100% + 120px) calc(100% - 40px),
-      -64px 0px,
-      0px -64px;
-  }
-  100% {
-    background-position:
-      -240px 80px,
-      calc(100% + 240px) calc(100% - 80px),
-      -128px 0px,
-      0px -128px;
-  }
-}
+    @keyframes bgDrift {
+      0% {
+        background-position:
+          0px 0px,
+          100% 100%,
+          0px 0px,
+          0px 0px;
+      }
+      50% {
+        background-position:
+          -120px 40px,
+          calc(100% + 120px) calc(100% - 40px),
+          -64px 0px,
+          0px -64px;
+      }
+      100% {
+        background-position:
+          -240px 80px,
+          calc(100% + 240px) calc(100% - 80px),
+          -128px 0px,
+          0px -128px;
+      }
+    }
 
     /* NAV */
 
@@ -669,8 +670,44 @@
     }
 
     .section-alt {
-      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), transparent 70%);
-      border-block: 1px solid rgba(15, 23, 42, 0.9);
+      position: relative;
+      background: rgba(11, 16, 32, 0.85);
+      border-top: 1px solid rgba(148, 163, 184, 0.15);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+      backdrop-filter: blur(6px);
+    }
+
+    .section-deep {
+      position: relative;
+      background: linear-gradient(
+        to bottom,
+        rgba(2, 6, 23, 0.95),
+        rgba(5, 8, 22, 0.98)
+      );
+      border-top: 1px solid rgba(30, 41, 59, 0.8);
+      border-bottom: 1px solid rgba(30, 41, 59, 0.8);
+    }
+
+    .section-surface {
+      position: relative;
+      background: radial-gradient(
+        circle at center,
+        rgba(15, 23, 42, 0.92),
+        rgba(15, 23, 42, 0.98)
+      );
+      border-top: 1px solid rgba(148, 163, 184, 0.1);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .section-deep::before,
+    .section-surface::before {
+      content: "";
+      display: block;
+      height: 2px;
+      width: 72px;
+      margin: 0 auto 2rem;
+      background: rgba(148, 163, 184, 0.4);
+      border-radius: 999px;
     }
 
     /* HOW IT WORKS */
@@ -937,8 +974,6 @@
       background: var(--bg-elevated);
       color: var(--text-soft);
     }
-
-    
 
     /* FAQ */
 
@@ -1278,7 +1313,7 @@
       </section>
 
       <!-- HOW IT WORKS -->
-      <section id="how">
+      <section id="how" class="section-alt">
         <div class="container">
           <div class="section-header">
             <div class="section-eyebrow">How Simply Trading fits into your routine</div>
@@ -1319,7 +1354,7 @@
       </section>
 
       <!-- FEATURES -->
-      <section id="features" class="section-alt">
+      <section id="features">
         <div class="container">
           <div class="features-layout">
             <div>
@@ -1395,7 +1430,7 @@
       </section>
 
       <!-- 2026 UPDATES -->
-      <section id="updates">
+      <section id="updates" class="section-surface">
         <div class="container">
           <div class="section-header">
             <div class="section-eyebrow">2026 features</div>
@@ -1440,7 +1475,7 @@
       </section>
 
       <!-- PRICING -->
-      <section id="pricing" class="section-alt">
+      <section id="pricing" class="section-deep">
         <div class="container">
           <div class="pricing-layout">
             <div>
@@ -1614,7 +1649,7 @@
       </section>
 
       <!-- FAQ -->
-      <section id="faq" class="section-alt">
+      <section id="faq" class="section-surface">
         <div class="container">
           <div class="faq-grid">
             <div>
